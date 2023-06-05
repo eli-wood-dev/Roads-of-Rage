@@ -1,5 +1,3 @@
-package com.example.drawing;
-
 /**
  * Class for a 2d Vector
  * I'll make documentation later
