@@ -140,10 +140,10 @@ public class Vector{
      * 
      * @author Eli Wood
      * 
-     * @return the rotation in degrees
+     * @return the rotation in radians
      */
     public double heading(){
-        return Math.atan(y/x);
+        return Math.atan2(y, x);
     }
     
     public static double angleBetween(Vector v1, Vector v2){
@@ -165,6 +165,12 @@ public class Vector{
         return v;
     }
     
+    /**
+     * rotates the vecor around the origin counter-clockwise
+     * 
+     * @author Eli Wood
+     * @param theta angle in radians
+     */
     public void rotate(double theta){
         y = x * Math.sin(theta) + y * Math.cos(theta);
         x = x * Math.cos(theta) - y * Math.sin(theta);
