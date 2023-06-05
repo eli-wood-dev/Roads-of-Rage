@@ -117,4 +117,62 @@ public class Vector{
     public static double dot(Vector v1, Vector v2){
         return v1.dot(v2);
     }
+    
+    public void normalize(){
+        x /= getMag();
+        y /= getMag();
+    }
+    
+    public void setMag(double mag){
+        normalize();
+        x*= mag;
+        y*= mag;
+    }
+    
+    public void limit(double mag){
+        if(getMag() > mag){
+            setMag(mag);
+        }
+    }
+    
+    /**
+     * calculates the angle of the vector from the horizontal counter-clockwise
+     * 
+     * @author Eli Wood
+     * 
+     * @return the rotation in radians
+     */
+    public double heading(){
+        return Math.atan2(y, x);
+    }
+    
+    public static double angleBetween(Vector v1, Vector v2){
+        return v2.heading() - v1.heading();
+    }
+    
+    public void lerp(double x, double y, double amount){
+        this.x = x * (1-amount) + (x*amount);
+        this.y = y * (1-amount) + (y*amount);
+    }
+    
+    public void lerp(Vector v, double amount){
+        lerp(v.getX(), v.getY(), amount);
+    }
+    
+    public static Vector lerp(Vector v1, Vector v2, double amount){
+        Vector v = v1.copy();
+        v.lerp(v2, amount);
+        return v;
+    }
+    
+    /**
+     * rotates the vecor around the origin counter-clockwise
+     * 
+     * @author Eli Wood
+     * @param theta angle in radians
+     */
+    public void rotate(double theta){
+        y = x * Math.sin(theta) + y * Math.cos(theta);
+        x = x * Math.cos(theta) - y * Math.sin(theta);
+    }
 }
