@@ -1,0 +1,16 @@
+@startuml
+
+abstract class abstCar
+abstCar : - pos : Vector
+abstCar : - globalSpeed : double
+abstCar : - localSpeed : double
+abstCar : - durability : double
+
+abstCar : + abstCar()
+abstCar : + getPos() : Vector
+abstCar : + setGlobalSpeed(globalSpeed : double)
+abstCar : + getDurability() : durability
+abstCar : + act()
+abstCar : + interact()
+
+@enduml
