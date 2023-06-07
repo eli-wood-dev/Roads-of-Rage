@@ -10,10 +10,22 @@ public abstract class Projectile extends SmoothMover{
     private Vector pos;
     private Vector vel;
     
+    /**
+     * Constructor
+     */
     public Projectile(){
         
     }
     
-    public abstract void checkCollision();
+    /**
+     * check if off screen (usually remove object)
+     */
     public abstract void checkEdge();
+    
+    /**
+     * interact with the player
+     * 
+     * @param p the player(not implemented yet)
+     */
+    public abstract void interact(/*Player p*/);
 }
