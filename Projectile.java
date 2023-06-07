@@ -16,4 +16,5 @@ public abstract class Projectile extends SmoothMover{
     
     public abstract void checkCollision();
     public abstract void checkEdge();
+    public abstract void interact(/*Player p*/);
 }

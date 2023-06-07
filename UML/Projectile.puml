@@ -7,5 +7,6 @@ Projectile : -vel: Vector
 Projectile : +Projectile()
 Projectile : +checkCollisions(): void
 Projectile : +checkEdge(): void
+Projectile : +interact(): void
 
 @enduml

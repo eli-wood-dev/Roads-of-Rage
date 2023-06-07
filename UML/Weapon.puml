@@ -1,0 +1,18 @@
+@startuml
+
+abstract class Weapon
+class SmoothMover
+
+Weapon <|-- SmoothMover
+
+Weapon : -pos: Vector
+Weapon : -target: Vector
+Weapon : -image: GreenfootImage
+Weapon : -degRot: int
+
+Weapon : +Weapon(target: Vector, image: GreenfootImage)
+Weapon : +act(): void
+Weapon : abstract shoot(): void
+Weapon : -rotateTowards(target: Vector): void
+
+@enduml
