@@ -62,9 +62,12 @@ public class RoadObject extends SmoothMover implements Despawnable
     }
     
     /**
+     * despawn an actor, override this method to add explosions or sounds.
      * 
+     * @author  Zachary Sousa
+     * @version 1.00
      */
     public void despawn(Actor a, ArrayList<Actor> list) {
-        
+        game.despawn(a, list);
     }
 }
