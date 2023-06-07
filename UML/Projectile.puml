@@ -1,11 +1,15 @@
 @startuml
 
 abstract class Projectile
+class SmoothMover
+
+Projectile <|-- SmoothMover
 
 Projectile : -pos: Vector
 Projectile : -vel: Vector
 Projectile : +Projectile()
 Projectile : +checkCollisions(): void
 Projectile : +checkEdge(): void
+Projectile : +interact(): void
 
 @enduml
