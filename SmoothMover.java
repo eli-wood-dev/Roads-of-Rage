@@ -47,6 +47,10 @@ public abstract class SmoothMover extends Actor
         super.setLocation((int) (x + 0.5), (int) (y + 0.5));
     }
     
+    public void setLocation(Vector v){
+        setLocation(v.getX(), v.getY());
+    }
+    
     /**
      * Set the location using integer coordinates.
      * (Overrides the method in Actor.)

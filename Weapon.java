@@ -12,12 +12,24 @@ public abstract class Weapon extends SmoothMover{
     private GreenfootImage image;
     private int degRot = 0;
     
+    /**
+     * Constructor
+     */
     public Weapon(Vector target, GreenfootImage image){
         this.target = target;
         this.image = image;
     }
     
+    /**
+     * main act function *don't override*
+     * use shoot for code instead
+     * 
+     * @author Eli Wood
+     */
     public void act(){
+        pos.setX(getExactX());
+        pos.setY(getExactY());
+        
         rotateTowards(target);
         shoot();
     }
@@ -27,6 +39,12 @@ public abstract class Weapon extends SmoothMover{
      */
     abstract void shoot();
     
+    /**
+     * rotates towards a Vector
+     * 
+     * @author Eli Wood
+     * @param target what to rotate towards
+     */
     private void rotateTowards(Vector target){
         Vector dir = Vector.sub(target, pos);
         

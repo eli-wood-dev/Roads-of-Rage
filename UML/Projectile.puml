@@ -1,6 +1,9 @@
 @startuml
 
 abstract class Projectile
+class SmoothMover
+
+Projectile <|-- SmoothMover
 
 Projectile : -pos: Vector
 Projectile : -vel: Vector
