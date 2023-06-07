@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Abstract world for storing global variables and functions that actors may need. The ACTUAL
  * 'GAME' world will inherit from this one. When creating a reference to the world for your
- * actor class, you may find it useful to use the AbstGame Object type.
+ * actor class, you may find it useful to use the AncestorGame Object.
  * 
  * @author      Zachary Sousa 
  * @version     1.00
