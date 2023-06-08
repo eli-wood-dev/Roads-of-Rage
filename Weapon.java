@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * abstract weapon class
@@ -7,17 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1
  */
 public abstract class Weapon extends SmoothMover{
-    private Vector pos;
-    Vector target;
-    private GreenfootImage image;
+    protected Vector pos = new Vector();
+    protected Vector target = new Vector();
+    protected GreenfootImage image;
     private int degRot = 0;
+    protected AncestorGame game;
+    ArrayList<Actor> bullets;
+    Car owner;
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image){
+    public Weapon(Vector target, GreenfootImage image, Car owner){
         this.target = target;
         this.image = image;
+        setImage(image);
+        this.owner = owner;
+        image.rotate(90);
     }
     
     /**
@@ -27,17 +34,21 @@ public abstract class Weapon extends SmoothMover{
      * @author Eli Wood
      */
     public void act(){
+        if(game == null){
+            game = (AncestorGame)getWorld();
+            bullets = game.getBullets();
+        }
+        
         pos.setX(getExactX());
         pos.setY(getExactY());
         
         rotateTowards(target);
-        shoot();
     }
     
     /**
      * put weapon code here
      */
-    abstract void shoot();
+    public abstract void shoot();
     
     /**
      * rotates towards a Vector
@@ -46,6 +57,7 @@ public abstract class Weapon extends SmoothMover{
      * @param target what to rotate towards
      */
     private void rotateTowards(Vector target){
+        /*
         Vector dir = Vector.sub(target, pos);
         
         double degTarget = Math.toDegrees(dir.heading()) + 90;
@@ -56,5 +68,8 @@ public abstract class Weapon extends SmoothMover{
         
         image.rotate((int)degTarget - degRot);
         degRot += (int)degTarget;
+        */
+        turnTowards((int)target.getX(), (int)target.getY());
+        
     }
 }

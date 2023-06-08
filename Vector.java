@@ -12,6 +12,16 @@ public class Vector{
      * Constructor
      * 
      * @author Eli Wood
+     */
+    public Vector(){
+        x = 0;
+        y = 0;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @author Eli Wood
      * 
      * @param x the x coordinate
      * @param y the y coordinate
