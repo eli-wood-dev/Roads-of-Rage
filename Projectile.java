@@ -10,6 +10,7 @@ public abstract class Projectile extends SmoothMover{
     protected Vector pos;
     protected Vector vel;
     protected GreenfootImage img;
+    protected int degRot;//rotation in degrees
     
     /**
      * Constructor
@@ -17,22 +18,21 @@ public abstract class Projectile extends SmoothMover{
      * @author Eli Wood
      * @param img the image to use
      */
-    public Projectile(GreenfootImage img){
+    public Projectile(Vector vel, GreenfootImage img){
         this.img = img;
         setImage(img);
+        this.vel = vel;
     }
     
     /**
-     * Constructor
-     * 
-     * @param img the image to use
-     * @param degRot the intial rotation in degrees
+     * main act function
      */
-    public Projectile(GreenfootImage img, int degRot){
-        this.img = img;
-        setImage(img);
+    public void act(){
+        pos.add(vel);
         
-        img.rotate(degRot);
+        rotateStraight();
+        
+        checkEdge();
     }
     
     /**
@@ -46,4 +46,20 @@ public abstract class Projectile extends SmoothMover{
      * @param p the player(not implemented yet)
      */
     public abstract void interact(/*Player p*/);
+    
+    /**
+     * rotates towards the direction the velocity is in
+     * 
+     * @author Eli Wood
+     */
+    private void rotateStraight(){
+        double degTarget = Math.toDegrees(vel.heading()) + 90;
+        
+        if(degTarget >= 360){
+            degTarget -= 360;
+        }
+        
+        img.rotate((int)degTarget - degRot);
+        degRot += (int)degTarget;
+    }
 }
