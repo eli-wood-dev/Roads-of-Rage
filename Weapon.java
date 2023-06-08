@@ -42,13 +42,12 @@ public abstract class Weapon extends SmoothMover{
         pos.setY(getExactY());
         
         rotateTowards(target);
-        shoot();
     }
     
     /**
      * put weapon code here
      */
-    abstract void shoot();
+    public abstract void shoot();
     
     /**
      * rotates towards a Vector
