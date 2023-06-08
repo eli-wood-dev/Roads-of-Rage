@@ -28,10 +28,12 @@ public class MachineGun extends Weapon{
      * shoots the gun
      */
     public void shoot(){
-        Vector vel = target.copy();
+        Vector vel = Vector.sub(target, pos);
+        
+        vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance * 2) - maxShotDeviance));
         vel.setMag(5);
-        vel.rotate(Math.toDegrees(r.nextDouble() * maxShotDeviance * 2) - maxShotDeviance);
         
         bullets.add(new Bullet(vel, 5, new GreenfootImage("bullet.png"), bullets, owner));
+        game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
     }
 }
