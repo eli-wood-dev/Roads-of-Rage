@@ -13,6 +13,7 @@ public class AncestorGame extends World
 {
     /*vv GLOBAL VARIABLES vv*/
     protected double globalSpeed;
+    protected ArrayList<Actor> projectiles = new ArrayList<Actor>();//only put projectile is here
     /*^^ GLOBAL VARIABLES ^^*/
     
     /**
@@ -45,4 +46,7 @@ public class AncestorGame extends World
         list.remove(obj);
     }
     
+    public ArrayList<Actor> getBullets(){
+        return projectiles;
+    }
 }
