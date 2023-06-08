@@ -7,9 +7,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1
  */
 public abstract class Weapon extends SmoothMover{
-    private Vector pos;
-    Vector target;
-    private GreenfootImage image;
+    protected Vector pos;
+    protected Vector target;
+    protected GreenfootImage image;
     private int degRot = 0;
     
     /**
@@ -18,6 +18,7 @@ public abstract class Weapon extends SmoothMover{
     public Weapon(Vector target, GreenfootImage image){
         this.target = target;
         this.image = image;
+        setImage(image);
     }
     
     /**

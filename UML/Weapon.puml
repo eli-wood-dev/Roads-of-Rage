@@ -5,9 +5,9 @@ class SmoothMover
 
 Weapon <|-- SmoothMover
 
-Weapon : -pos: Vector
-Weapon : -target: Vector
-Weapon : -image: GreenfootImage
+Weapon : #pos: Vector
+Weapon : #target: Vector
+Weapon : #image: GreenfootImage
 Weapon : -degRot: int
 
 Weapon : +Weapon(target: Vector, image: GreenfootImage)
