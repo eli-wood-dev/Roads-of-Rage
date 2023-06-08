@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * abstract weapon class
@@ -11,14 +12,18 @@ public abstract class Weapon extends SmoothMover{
     protected Vector target;
     protected GreenfootImage image;
     private int degRot = 0;
+    protected AncestorGame game;
+    ArrayList<Actor> bullets;
+    Car owner;
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image){
+    public Weapon(Vector target, GreenfootImage image, Car owner){
         this.target = target;
         this.image = image;
         setImage(image);
+        this.owner = owner;
     }
     
     /**
@@ -28,17 +33,21 @@ public abstract class Weapon extends SmoothMover{
      * @author Eli Wood
      */
     public void act(){
+        if(game == null){
+            game = (AncestorGame)getWorld();
+            bullets = game.getBullets();
+        }
+        
         pos.setX(getExactX());
         pos.setY(getExactY());
         
         rotateTowards(target);
-        shoot();
     }
     
     /**
      * put weapon code here
      */
-    abstract void shoot();
+    public abstract void shoot();
     
     /**
      * rotates towards a Vector
