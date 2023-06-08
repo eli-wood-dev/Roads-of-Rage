@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @version 1
  */
 public abstract class Weapon extends SmoothMover{
-    protected Vector pos;
-    protected Vector target;
+    protected Vector pos = new Vector();
+    protected Vector target = new Vector();
     protected GreenfootImage image;
     private int degRot = 0;
     protected AncestorGame game;
@@ -24,6 +24,7 @@ public abstract class Weapon extends SmoothMover{
         this.image = image;
         setImage(image);
         this.owner = owner;
+        image.rotate(90);
     }
     
     /**
@@ -56,6 +57,7 @@ public abstract class Weapon extends SmoothMover{
      * @param target what to rotate towards
      */
     private void rotateTowards(Vector target){
+        /*
         Vector dir = Vector.sub(target, pos);
         
         double degTarget = Math.toDegrees(dir.heading()) + 90;
@@ -66,5 +68,8 @@ public abstract class Weapon extends SmoothMover{
         
         image.rotate((int)degTarget - degRot);
         degRot += (int)degTarget;
+        */
+        turnTowards((int)target.getX(), (int)target.getY());
+        
     }
 }
