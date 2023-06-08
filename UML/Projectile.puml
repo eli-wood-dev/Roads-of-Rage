@@ -5,9 +5,13 @@ class SmoothMover
 
 Projectile <|-- SmoothMover
 
-Projectile : -pos: Vector
-Projectile : -vel: Vector
-Projectile : +Projectile()
+Projectile : #pos: Vector
+Projectile : #vel: Vector
+Projectile : #img: GreenfootImage
+
+Projectile : +Projectile(img: GreenfootImage)
+Projectile : +Projectile(img: GreenfootImage, degRot: int)
+
 Projectile : +checkCollisions(): void
 Projectile : +checkEdge(): void
 Projectile : +interact(): void

@@ -7,14 +7,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1
  */
 public abstract class Projectile extends SmoothMover{
-    private Vector pos;
-    private Vector vel;
+    protected Vector pos;
+    protected Vector vel;
+    protected GreenfootImage img;
     
     /**
      * Constructor
+     * 
+     * @author Eli Wood
+     * @param img the image to use
      */
-    public Projectile(){
+    public Projectile(GreenfootImage img){
+        this.img = img;
+        setImage(img);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param img the image to use
+     * @param degRot the intial rotation in degrees
+     */
+    public Projectile(GreenfootImage img, int degRot){
+        this.img = img;
+        setImage(img);
         
+        img.rotate(degRot);
     }
     
     /**
