@@ -289,8 +289,7 @@ public class Vector{
      * @author Eli Wood
      */
     public void normalize(){
-        x /= getMag();
-        y /= getMag();
+        div(getMag());
     }
     
     /**

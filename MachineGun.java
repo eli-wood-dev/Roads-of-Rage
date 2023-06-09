@@ -10,8 +10,8 @@ import java.util.Random;
  */
 public class MachineGun extends Weapon{
     double maxShotDeviance;
-    Random r;
-    GreenfootImage bulletImage;
+    private Random r;
+    private GreenfootImage bulletImage;
     
     
     /**
@@ -20,8 +20,8 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner){
-        super(target, image, owner);
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int shotDelay){
+        super(target, image, owner, shotDelay);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
@@ -35,8 +35,8 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, double damage){
-        super(target, image, owner, damage);
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int shotDelay, double damage){
+        super(target, image, owner, shotDelay, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
@@ -47,12 +47,17 @@ public class MachineGun extends Weapon{
      * shoots the gun
      */
     public void shoot(){
-        Vector vel = Vector.sub(target, pos);
+        if(time.millisElapsed() >= shotDelay){
+            time.mark();
+            
+            Vector vel = Vector.sub(target, pos);
+            
         
-        vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance) - maxShotDeviance/2));
-        vel.setMag(5);
-        
-        bullets.add(new Bullet(vel, damage, bulletImage, bullets, owner));
-        game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
+            vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance) - maxShotDeviance/2));
+            vel.setMag(5);
+            
+            bullets.add(new Bullet(vel, damage, new GreenfootImage(bulletImage), bullets, owner));
+            game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
+        }
     }
 }

@@ -43,7 +43,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public Projectile(Vector vel, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
         this.img = img;
         setImage(img);
-        img.rotate(90);
+        //img.rotate(90);
         this.vel = vel;
         this.list = list;
         this.ignores = ignores;
@@ -87,7 +87,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * 
      * @author Eli Wood
      */
-    private void rotateStraight(){
+    protected void rotateStraight(){
         /*
         double degTarget = Math.toDegrees(vel.heading()) + 90;
         
@@ -95,12 +95,15 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
             degTarget -= 360;
         }
         
-        img.rotate((int)degTarget - degRot);
+        setRotation((int)degTarget - degRot);
         degRot += (int)degTarget;
-        */
+        
         Vector tar = new Vector(pos.getX() + vel.getX(), pos.getY() + vel.getY());
         
         turnTowards((int)tar.getX(), (int)tar.getY());
+        */
+        
+        setRotation((int)Math.toDegrees(vel.heading()));
     }
     
     public void despawn(Actor a, ArrayList<Actor> list){
