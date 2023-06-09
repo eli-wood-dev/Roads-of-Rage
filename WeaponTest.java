@@ -16,12 +16,12 @@ public class WeaponTest extends AncestorGame{
      */
     public WeaponTest(){
         super(600, 600);
-        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 100, 5);
+        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 10, 5);
         addObject(testGun, 300, 300);
     }
     
     public void act(){
-        updateMouse();
+        super.act();
         
         if(mouse != null/* && mouse.getButton() == 1*/){
             testGun.shoot();
