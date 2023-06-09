@@ -35,7 +35,7 @@ public class Utilities
     }
     
     /**
-     * clamps a value in a range.
+     * Clamps a value in a range.
      * 
      * @param value     the value to clamp
      * @param min       the minimum of the range
