@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class WeaponTest extends AncestorGame{
-    MachineGun testGun;
+    Weapon testGun;
     
     
     /**
@@ -16,7 +16,8 @@ public class WeaponTest extends AncestorGame{
      */
     public WeaponTest(){
         super(600, 600);
-        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 10, 5);
+        //testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 10, 5);
+        testGun = new Shotgun(mousePos, new GreenfootImage("barrel.png"), 40, null, 30, 5, 5);
         addObject(testGun, 300, 300);
     }
     
