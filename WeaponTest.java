@@ -11,7 +11,7 @@ public class WeaponTest extends AncestorGame{
     
     
     /**
-     * Constructor for objects of class WeaponTest.
+     * Constructor for objects of class SpeedometerTest.
      * 
      */
     public WeaponTest(){
