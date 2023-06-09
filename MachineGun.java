@@ -13,6 +13,7 @@ public class MachineGun extends Weapon{
     Random r;
     GreenfootImage bulletImage;
     
+    
     /**
      * Constructor
      * 
@@ -21,6 +22,21 @@ public class MachineGun extends Weapon{
      */
     public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner){
         super(target, image, owner);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletImage.scale(9, 18);
+        damage = 5;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, double damage){
+        super(target, image, owner, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
@@ -36,7 +52,7 @@ public class MachineGun extends Weapon{
         vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance * 2) - maxShotDeviance));
         vel.setMag(5);
         
-        bullets.add(new Bullet(vel, 5, bulletImage, bullets, owner));
+        bullets.add(new Bullet(vel, damage, bulletImage, bullets, owner));
         game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
     }
 }
