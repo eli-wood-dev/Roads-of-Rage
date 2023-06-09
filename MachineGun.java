@@ -9,7 +9,7 @@ import java.util.Random;
  * @version 1
  */
 public class MachineGun extends Weapon{
-    double maxShotDeviance;//positive shot deviance in degrees
+    double maxShotDeviance;
     Random r;
     GreenfootImage bulletImage;
     
@@ -49,7 +49,7 @@ public class MachineGun extends Weapon{
     public void shoot(){
         Vector vel = Vector.sub(target, pos);
         
-        vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance * 2) - maxShotDeviance));
+        vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance) - maxShotDeviance/2));
         vel.setMag(5);
         
         bullets.add(new Bullet(vel, damage, bulletImage, bullets, owner));
