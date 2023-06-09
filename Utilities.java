@@ -5,7 +5,7 @@ public class Utilities
 {
     
     /**
-     * Lineraly interpolates a value
+     * Lineraly interpolates a value. Useful for smoothening movements.
      * @param a     the current value
      * @param b     the destination value
      * @param f     the rate of interpolation
