@@ -10,6 +10,6 @@ public class Constants
     
     
     public static final int MISSILE_LIFESPAN = 300;
-    public static final double MISSILE_TURN_RATE = 0.1;
+    public static final double MISSILE_TURN_RATE = 0.05;
     /*=============*/
 }

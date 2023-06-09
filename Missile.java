@@ -61,7 +61,11 @@ public class Missile extends Projectile{
         
         double speed = vel.getMag();
         if(!dir.equals(currentDir)){//check if already straight
-            vel.rotate(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE) - vel.heading());
+            if(vel.heading() - dir.heading() < 0){
+                vel.setRotation(Utilities.lerp(dir.heading(), vel.heading(), Constants.MISSILE_TURN_RATE));
+            } else{
+                vel.setRotation(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE));
+            }
             vel.setMag(speed);
         }
         super.rotateStraight();

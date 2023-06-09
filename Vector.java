@@ -389,6 +389,10 @@ public class Vector{
         x = x * Math.cos(theta) - y * Math.sin(theta);
     }
     
+    public void setRotation(double theta){
+        rotate(theta - heading());
+    }
+    
     public boolean equals(Vector v){
         if(v.getX() == x && v.getY() == y){
             return true;
