@@ -388,4 +388,12 @@ public class Vector{
         y = x * Math.sin(theta) + y * Math.cos(theta);
         x = x * Math.cos(theta) - y * Math.sin(theta);
     }
+    
+    public boolean equals(Vector v){
+        if(v.getX() == x && v.getY() == y){
+            return true;
+        }
+        
+        return false;
+    }
 }

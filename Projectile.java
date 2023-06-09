@@ -60,6 +60,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public Projectile(Vector vel, GifImage gif, ArrayList<Actor> list, Car ignores){
         this.gif = gif;
         setImage(gif.getCurrentImage());
+        gif.resume();
         this.vel = vel;
         this.list = list;
         this.ignores = ignores;
@@ -76,6 +77,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public Projectile(Vector vel, double damage, GifImage gif, ArrayList<Actor> list, Car ignores){
         this.gif = gif;
         setImage(gif.getCurrentImage());
+        gif.resume();
         this.vel = vel;
         this.list = list;
         this.ignores = ignores;

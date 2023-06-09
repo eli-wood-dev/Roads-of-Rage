@@ -18,6 +18,7 @@ public abstract class Weapon extends SmoothMover{
     protected double damage;
     protected int attackSpeed;//frames between attacks
     protected int lastAttack = 0;
+    protected double bulletSpeed = 5;
     
     /**
      * Constructor
