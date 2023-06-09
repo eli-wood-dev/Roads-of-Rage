@@ -40,10 +40,6 @@ public class Missile extends Projectile{
         if(frame > Constants.MISSILE_LIFESPAN){
             despawn(this, list);
         }
-        
-        if(pos.equals(target)){
-            despawn(this, list);
-        }
     }
     
     public void interact(Car c){
@@ -56,16 +52,17 @@ public class Missile extends Projectile{
         //rotate vel to target
         Vector dir = Vector.sub(target, pos);
         dir.normalize();
-        Vector currentDir = vel.copy();
-        currentDir.normalize();
         
         double speed = vel.getMag();
-        if(!dir.equals(currentDir)){//check if already straight
-            if(vel.heading() - dir.heading() < 0){
-                vel.setRotation(Utilities.lerp(dir.heading(), vel.heading(), Constants.MISSILE_TURN_RATE));
+        if(dir.heading() - vel.heading() > 0.001 || dir.heading() - vel.heading() < 0.001){//check if already straight
+            
+            if(vel.heading() > dir.heading()){
+                vel.setRotation(Utilities.lerp(0, vel.heading() - dir.heading(), Constants.MISSILE_TURN_RATE) + dir.heading());
             } else{
                 vel.setRotation(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE));
             }
+            
+            //vel.setRotation(dir.heading());
             vel.setMag(speed);
         }
         super.rotateStraight();

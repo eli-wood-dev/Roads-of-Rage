@@ -41,10 +41,4 @@ public class Bullet extends Projectile{
             //damage the car
         }
     }
-    
-    protected void rotateStraight(){
-        super.rotateStraight();
-        
-        setRotation(getRotation());
-    }
 }
