@@ -11,6 +11,7 @@ import java.util.Random;
 public class MachineGun extends Weapon{
     double maxShotDeviance;//positive shot deviance in degrees
     Random r;
+    GreenfootImage bulletImage;
     
     /**
      * Constructor
@@ -22,6 +23,8 @@ public class MachineGun extends Weapon{
         super(target, image, owner);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletImage.scale(9, 18);
     }
     
     /**
@@ -33,7 +36,7 @@ public class MachineGun extends Weapon{
         vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance * 2) - maxShotDeviance));
         vel.setMag(5);
         
-        bullets.add(new Bullet(vel, 5, new GreenfootImage("bullet.png"), bullets, owner));
+        bullets.add(new Bullet(vel, 5, bulletImage, bullets, owner));
         game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
     }
 }

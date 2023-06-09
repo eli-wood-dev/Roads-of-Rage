@@ -17,7 +17,6 @@ public class Bullet extends Projectile{
      */
     public Bullet(Vector vel, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
         super(vel, damage, img, list, ignores);
-        img.scale(9, 18);
     }
     
     public void checkEdge(){
