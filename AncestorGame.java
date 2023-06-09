@@ -26,7 +26,7 @@ public class AncestorGame extends World
      * @version 1.00
      */
     public AncestorGame(int width, int height) {    
-        super(width, height, 1);
+        super(width, height, 1, false);
         mouse = Greenfoot.getMouseInfo();
     }
     

@@ -1,16 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
- * Write a description of class MachineGun here.
+ * Write a description of class RocketLauncher here.
  * 
- * @author Eli Wood
- * @version 1
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class MachineGun extends Weapon{
-    private double maxShotDeviance;
-    private Random r;
+public class RocketLauncher extends Weapon{
     private GreenfootImage bulletImage;
     GifImage bulletGif;
     
@@ -21,12 +17,10 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed){
+    public RocketLauncher(Vector target, GreenfootImage image,Car owner, int attackSpeed){
         super(target, image, owner, attackSpeed);
-        this.maxShotDeviance = maxShotDeviance;
-        r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
-        bulletGif = new GifImage("plasma1.gif");
+        bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
         damage = 5;
@@ -38,12 +32,10 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, double damage){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage){
         super(target, image, owner, attackSpeed, damage);
-        this.maxShotDeviance = maxShotDeviance;
-        r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
-        bulletGif = new GifImage("plasma1.gif");
+        bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
     }
@@ -54,12 +46,10 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, double damage, double bulletSpeed){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage, double bulletSpeed){
         super(target, image, owner, attackSpeed, damage);
-        this.maxShotDeviance = maxShotDeviance;
-        r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
-        bulletGif = new GifImage("plasma1.gif");
+        bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
         this.bulletSpeed = bulletSpeed;
@@ -74,11 +64,9 @@ public class MachineGun extends Weapon{
             
             Vector vel = Vector.sub(target, pos);
             
-        
-            vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance) - maxShotDeviance/2));
             vel.setMag(bulletSpeed);
             
-            bullets.add(new Bullet(vel, damage,/* new GreenfootImage(bulletImage)*/ new GifImage(bulletGif), bullets, owner));
+            bullets.add(new Missile(vel, target, damage, new GifImage(bulletGif), bullets, owner));
             game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
         }
     }
