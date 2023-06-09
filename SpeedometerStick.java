@@ -29,6 +29,7 @@ public class SpeedometerStick extends SmoothMover
         setImage(img);
         this.LOW_LIMIT = LOW_LIMIT;
         this.HI_LIMIT = HI_LIMIT;
+        this.setRotation(LOW_LIMIT);
     }
     
     /**
@@ -54,8 +55,8 @@ public class SpeedometerStick extends SmoothMover
     /**
      * The destination rotation (rot) is calculated by mapping the current speed within the degrees of freedom
      * of the speedometer (LOW_LIMIT, HI_LIMIT). It is then clamped between those values as well, because it
-     * is technically possible that the speed would exceed the limit, and the stick should never spin a full
-     * 360 degrees. The current rotation is then interpolated between the current rotation and new rotation
+     * is technically possible that the speed would exceed the limit, and the stick should never spin outside
+     * the range. The current rotation is then interpolated between the current rotation and new rotation
      * by a fraction (TURN_RATE). The only time these behaviors would be ignored is when the player is boosting,
      * in which case the stick would turn directly to the red area for the duration.
      * 
