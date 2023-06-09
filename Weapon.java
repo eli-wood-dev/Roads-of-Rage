@@ -16,28 +16,32 @@ public abstract class Weapon extends SmoothMover{
     ArrayList<Actor> bullets;
     Car owner;
     protected double damage;
+    protected SimpleTimer time = new SimpleTimer();
+    int shotDelay;//delay in milliseconds
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image, Car owner){
+    public Weapon(Vector target, GreenfootImage image, Car owner, int shotDelay){
         this.target = target;
         this.image = image;
         setImage(image);
         this.owner = owner;
         image.rotate(90);
+        this.shotDelay = shotDelay;
     }
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image, Car owner, double damage){
+    public Weapon(Vector target, GreenfootImage image, Car owner, int shotDelay, double damage){
         this.target = target;
         this.image = image;
         setImage(image);
         this.owner = owner;
         image.rotate(90);
         this.damage = damage;
+        this.shotDelay = shotDelay;
     }
     
     /**

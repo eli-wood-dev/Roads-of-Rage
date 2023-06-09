@@ -16,7 +16,7 @@ public class WeaponTest extends AncestorGame{
      */
     public WeaponTest(){
         super(600, 600);
-        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 10, null, 5);
+        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 100, 5);
         addObject(testGun, 300, 300);
     }
     
