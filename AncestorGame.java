@@ -16,6 +16,7 @@ public class AncestorGame extends World
     protected ArrayList<Actor> projectiles = new ArrayList<Actor>();//only put projectile is here
     protected MouseInfo mouse;
     protected Vector mousePos = new Vector();
+    protected int frameCount;//increment in all act methods
     /*^^ GLOBAL VARIABLES ^^*/
     
     /**
@@ -29,7 +30,12 @@ public class AncestorGame extends World
         mouse = Greenfoot.getMouseInfo();
     }
     
+    public int getFrameCount(){
+        return frameCount;
+    }
+    
     public void act(){
+        frameCount++;
         updateMouse();
     }
     

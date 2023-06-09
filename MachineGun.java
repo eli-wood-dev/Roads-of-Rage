@@ -20,8 +20,8 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int shotDelay){
-        super(target, image, owner, shotDelay);
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed){
+        super(target, image, owner, attackSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
@@ -35,8 +35,8 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int shotDelay, double damage){
-        super(target, image, owner, shotDelay, damage);
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, double damage){
+        super(target, image, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
@@ -47,8 +47,8 @@ public class MachineGun extends Weapon{
      * shoots the gun
      */
     public void shoot(){
-        if(time.millisElapsed() >= shotDelay){
-            time.mark();
+        if(game.getFrameCount() - lastAttack > attackSpeed){
+            lastAttack = game.getFrameCount();
             
             Vector vel = Vector.sub(target, pos);
             
