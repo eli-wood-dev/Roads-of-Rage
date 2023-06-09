@@ -58,6 +58,12 @@ public class AncestorGame extends World
     
     /**
      * removes the given Object from the world and removes it from the list it originates from.
+     * 
+     * @param obj       the Actor to despawn
+     * @param list      the list the Actor is in
+     * 
+     * @author  Zachary Sousa
+     * @version 1.00
      */
     public void despawn(Actor obj, ArrayList<Actor> list) {
         removeObject(obj);
@@ -68,20 +74,5 @@ public class AncestorGame extends World
         return projectiles;
     }
     
-    /**
-     * remaps a number between two ranges
-     *
-     * @author EliWood
-     * @version 1
-     *
-     * @param s the number to map
-     * @param low1 the low range
-     * @param high1 the high range
-     * @param low2 the new low range
-     * @param high2 the new high range
-     * @return s remapped to the new range
-     */
-    public static double map(double s, double low1, double high1, double low2, double high2){
-        return (s-low1)*(high2-low2)/(high1-low1) + low2;
-    }
+    
 }
