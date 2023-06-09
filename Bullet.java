@@ -17,7 +17,17 @@ public class Bullet extends Projectile{
      */
     public Bullet(Vector vel, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
         super(vel, damage, img, list, ignores);
-        img.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @author Eli Wood
+     * @param img the image to use
+     * @param vel the velocity of the projectile
+     */
+    public Bullet(Vector vel, double damage, GifImage img, ArrayList<Actor> list, Car ignores){
+        super(vel, damage, img, list, ignores);
     }
     
     public void checkEdge(){
@@ -32,5 +42,9 @@ public class Bullet extends Projectile{
         }
     }
     
-    
+    protected void rotateStraight(){
+        super.rotateStraight();
+        
+        setRotation(getRotation());
+    }
 }
