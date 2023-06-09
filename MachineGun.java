@@ -49,12 +49,14 @@ public class MachineGun extends Weapon{
     public void shoot(){
         if(time.millisElapsed() >= shotDelay){
             time.mark();
+            
             Vector vel = Vector.sub(target, pos);
+            
         
             vel.rotate(Math.toRadians((r.nextDouble() * maxShotDeviance) - maxShotDeviance/2));
             vel.setMag(5);
             
-            bullets.add(new Bullet(vel, damage, bulletImage, bullets, owner));
+            bullets.add(new Bullet(vel, damage, new GreenfootImage(bulletImage), bullets, owner));
             game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
         }
     }

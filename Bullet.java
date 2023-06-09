@@ -31,5 +31,9 @@ public class Bullet extends Projectile{
         }
     }
     
-    
+    protected void rotateStraight(){
+        super.rotateStraight();
+        
+        setRotation(getRotation() + 90);
+    }
 }
