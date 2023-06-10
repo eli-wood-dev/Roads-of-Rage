@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class Car extends RoadObject
 {
     private double localSpeed;      //the rate that the car can move locally on the screen
-    private double durability;      //scalar for other stats, decreases when damage taken, higher is better
+    private double durability = 100;      //scalar for other stats, decreases when damage taken, higher is better
     
     /**
      * Calls the super constructor for the RoadObject.
      */
-    public Car(AncestorGame game, ArrayList<Actor> list) {
+    public Car(AncestorGame game, ArrayList<RoadObject> list) {
         super(game, list);
     }
     
@@ -25,6 +25,9 @@ public class Car extends RoadObject
      */
     public void act() {
         super.act();
+        if(durability <= 0){
+            despawn(this, list);
+        }
     }
     
     /**
@@ -32,5 +35,9 @@ public class Car extends RoadObject
      */
     public double getDurability() {
         return durability;
+    }
+    
+    public void hurt(double damage){
+        durability -= damage;
     }
 }

@@ -13,7 +13,7 @@ public abstract class Weapon extends SmoothMover{
     protected GreenfootImage image;
     private int degRot = 0;
     protected AncestorGame game;
-    ArrayList<Actor> bullets;
+    ArrayList<Projectile> bullets;
     Car owner;
     protected double damage;
     protected int attackSpeed;//frames between attacks
@@ -88,6 +88,8 @@ public abstract class Weapon extends SmoothMover{
         degRot += (int)degTarget;
         */
         turnTowards((int)target.getX(), (int)target.getY());
+        
+        
         
     }
 }
