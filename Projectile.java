@@ -11,9 +11,8 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     protected Vector pos;
     protected Vector vel = new Vector();
     protected GreenfootImage img;
-    protected int degRot;//rotation in degrees
     protected AncestorGame game;
-    protected ArrayList<Actor> list;
+    protected ArrayList<Projectile> list;
     protected Car ignores;
     protected double damage;
     GifImage gif;
@@ -25,7 +24,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, GreenfootImage img, ArrayList<Actor> list, Car ignores){
+    public Projectile(Vector vel, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         this.img = img;
         setImage(img);
         this.vel = vel;
@@ -41,7 +40,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
+    public Projectile(Vector vel, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         this.img = img;
         setImage(img);
         this.vel = vel;
@@ -57,7 +56,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, GifImage gif, ArrayList<Actor> list, Car ignores){
+    public Projectile(Vector vel, GifImage gif, ArrayList<Projectile> list, Car ignores){
         this.gif = gif;
         setImage(gif.getCurrentImage());
         gif.resume();
@@ -74,7 +73,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, double damage, GifImage gif, ArrayList<Actor> list, Car ignores){
+    public Projectile(Vector vel, double damage, GifImage gif, ArrayList<Projectile> list, Car ignores){
         this.gif = gif;
         setImage(gif.getCurrentImage());
         gif.resume();
@@ -105,6 +104,12 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
         
         setLocation(pos);
         
+        if(getIntersectingObjects(Car.class) != null){
+            for(Car c: getIntersectingObjects(Car.class)){
+                interact(c);
+            }
+        }
+        
         checkEdge();
     }
     
@@ -114,11 +119,14 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public abstract void checkEdge();
     
     /**
-     * interact with the player
-     * 
-     * @param c the car to interact with
+     * default interaction to damage car and kill itself
      */
-    public abstract void interact(Car c);
+    public void interact(Car c){
+        if(c != ignores){
+            c.hurt(damage);
+            despawn(this, list);
+        }
+    }
     
     /**
      * rotates towards the direction the velocity is in
@@ -142,9 +150,10 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
         */
         
         setRotation((int)Math.toDegrees(vel.heading()));
+        
     }
     
-    public void despawn(Actor a, ArrayList<Actor> list){
+    public void despawn(Actor a, ArrayList<? extends Actor> list){
         game.despawn(a, list);
     }
 }
