@@ -18,7 +18,7 @@ public class Missile extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Missile(Vector vel, Vector target, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
+    public Missile(Vector vel, Vector target, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
         this.target = target;
     }
@@ -30,7 +30,7 @@ public class Missile extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Missile(Vector vel, Vector target, double damage, GifImage img, ArrayList<Actor> list, Car ignores){
+    public Missile(Vector vel, Vector target, double damage, GifImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
         this.target = target;
     }
@@ -42,29 +42,26 @@ public class Missile extends Projectile{
         }
     }
     
-    public void interact(Car c){
-        if(c != ignores){
-            //damage the car
-        }
-    }
-    
     protected void rotateStraight(){
         //rotate vel to target
         Vector dir = Vector.sub(target, pos);
         dir.normalize();
         
         double speed = vel.getMag();
-        if(dir.heading() - vel.heading() > 0.001 || dir.heading() - vel.heading() < 0.001){//check if already straight
+        
+        if(/*dir.heading() - vel.heading() > 0.01 || dir.heading() - vel.heading() < -0.01*/Math.abs(pos.getX() - target.getX()) > Constants.MISSILE_ALLOWANCE && Math.abs(pos.getY() - target.getY()) > Constants.MISSILE_ALLOWANCE){
             
-            if(vel.heading() > dir.heading()){
+            if(vel.heading() > dir.heading() || dir.heading() - vel.heading() > Math.PI){
                 vel.setRotation(Utilities.lerp(0, vel.heading() - dir.heading(), Constants.MISSILE_TURN_RATE) + dir.heading());
             } else{
                 vel.setRotation(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE));
             }
             
             //vel.setRotation(dir.heading());
-            vel.setMag(speed);
+            
         }
+        vel.setMag(speed);
+        
         super.rotateStraight();
         
         setRotation(getRotation() + 90);
