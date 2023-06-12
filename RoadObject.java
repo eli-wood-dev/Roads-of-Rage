@@ -13,7 +13,7 @@ public class RoadObject extends SmoothMover implements Despawnable
     private double globalSpeed;         //the rate that the world is moving at
     private double speedMultiplier = 1; //multiplies the speed, 1 for down, -1 for up
     protected AncestorGame game;
-    protected ArrayList<RoadObject> list;    //the list that this object is a part of
+    protected ArrayList<? extends RoadObject> list;    //the list that this object is a part of
     
     /**
      * Constructor for the RoadObject, initializes the Vector position.
@@ -21,7 +21,7 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public RoadObject(AncestorGame game, ArrayList<RoadObject> list) {
+    public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
         pos = new Vector();
         this.game = game;
         this.list = list;
