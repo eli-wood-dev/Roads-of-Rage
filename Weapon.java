@@ -11,11 +11,12 @@ public abstract class Weapon extends SmoothMover{
     protected Vector pos = new Vector();
     protected Vector target = new Vector();
     protected GreenfootImage image;
+    protected GifImage gif;
     private int degRot = 0;
     protected AncestorGame game;
     ArrayList<Projectile> bullets;
     Car owner;
-    protected double damage;
+    protected int damage = 5;
     protected int attackSpeed;//frames between attacks
     protected int lastAttack = 0;
     protected double bulletSpeed = 5;
@@ -28,21 +29,51 @@ public abstract class Weapon extends SmoothMover{
         this.image = image;
         setImage(image);
         this.owner = owner;
-        image.rotate(90);
         this.attackSpeed = attackSpeed;
     }
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage){
-        this.target = target;
-        this.image = image;
-        setImage(image);
-        this.owner = owner;
-        image.rotate(90);
+    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage){
+        this(target, image, owner, attackSpeed);
         this.damage = damage;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        this(target, image, owner, attackSpeed, damage);
+        this.bulletSpeed = bulletSpeed;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed){
+        this.target = target;
+        this.gif = gif;
+        setImage(gif.getCurrentImage());
+        gif.pause();
+        this.owner = owner;
         this.attackSpeed = attackSpeed;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed, int damage){
+        this(target, gif, owner, attackSpeed);
+        this.damage = damage;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        this(target, gif, owner, attackSpeed, damage);
+        this.bulletSpeed = bulletSpeed;
     }
     
     /**
@@ -55,6 +86,10 @@ public abstract class Weapon extends SmoothMover{
         if(game == null){
             game = (AncestorGame)getWorld();
             bullets = game.getBullets();
+        }
+        
+        if(gif != null){
+            setImage(gif.getCurrentImage());
         }
         
         pos.setX(getExactX());

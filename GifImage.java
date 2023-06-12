@@ -27,6 +27,7 @@ public class GifImage
     private long time;
     /** Whether the animation is paused or not. */
     private boolean pause;
+    private int frameOffset = 0;
 
     /**
      * Set the image of the actor. If the image is a normal picture, it will be displayed as normal.
@@ -113,7 +114,19 @@ public class GifImage
             time += delay[currentIndex];
             currentIndex = (currentIndex+1) % images.length;
         }
+        currentIndex += frameOffset;
+        
+        if(currentIndex >= images.length){
+            currentIndex -= images.length;
+        }
+        
+        
+        frameOffset = 0;
         return images[currentIndex];
+    }
+    
+    public void advanceFrame(){
+        frameOffset++;
     }
 
     /**

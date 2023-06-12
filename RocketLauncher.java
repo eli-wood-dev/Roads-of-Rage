@@ -23,7 +23,6 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
-        damage = 5;
     }
     
     /**
@@ -32,7 +31,7 @@ public class RocketLauncher extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage){
         super(target, image, owner, attackSpeed, damage);
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
@@ -46,13 +45,54 @@ public class RocketLauncher extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage, double bulletSpeed){
-        super(target, image, owner, attackSpeed, damage);
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        super(target, image, owner, attackSpeed, damage, bulletSpeed);
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
-        this.bulletSpeed = bulletSpeed;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed){
+        super(target, gif, owner, attackSpeed);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage){
+        super(target, gif, owner, attackSpeed, damage);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        super(target, gif, owner, attackSpeed, damage, bulletSpeed);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
     }
     
     /**
@@ -60,14 +100,22 @@ public class RocketLauncher extends Weapon{
      */
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
+            if(gif != null){
+                gif.advanceFrame();
+            }
+            
             lastAttack = game.getFrameCount();
             
             Vector vel = Vector.sub(target, pos);
+            Vector posOffset = vel.copy();
             
             vel.setMag(bulletSpeed);
             
+            posOffset.setMag(getImage().getHeight()/2);
+            posOffset.add(pos);
+            
             bullets.add(new Missile(vel, target, damage, new GifImage(bulletGif), bullets, owner));
-            game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
+            game.addObject(bullets.get(bullets.size()-1), (int)posOffset.getX(), (int)posOffset.getY());
         }
     }
 }

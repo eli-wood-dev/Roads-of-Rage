@@ -18,7 +18,7 @@ public class Missile extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Missile(Vector vel, Vector target, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
+    public Missile(Vector vel, Vector target, int damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
         this.target = target;
     }
@@ -30,7 +30,7 @@ public class Missile extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Missile(Vector vel, Vector target, double damage, GifImage img, ArrayList<Projectile> list, Car ignores){
+    public Missile(Vector vel, Vector target, int damage, GifImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
         this.target = target;
     }
