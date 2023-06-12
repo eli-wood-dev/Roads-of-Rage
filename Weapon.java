@@ -90,7 +90,6 @@ public abstract class Weapon extends SmoothMover{
         
         if(gif != null){
             setImage(gif.getCurrentImage());
-            gif.pause();
         }
         
         pos.setX(getExactX());

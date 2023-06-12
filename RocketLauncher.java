@@ -101,17 +101,21 @@ public class RocketLauncher extends Weapon{
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
             if(gif != null){
-                gif.resume();
+                gif.advanceFrame();
             }
             
             lastAttack = game.getFrameCount();
             
             Vector vel = Vector.sub(target, pos);
+            Vector posOffset = vel.copy();
             
             vel.setMag(bulletSpeed);
             
+            posOffset.setMag(getImage().getHeight()/2);
+            posOffset.add(pos);
+            
             bullets.add(new Missile(vel, target, damage, new GifImage(bulletGif), bullets, owner));
-            game.addObject(bullets.get(bullets.size()-1), (int)pos.getX(), (int)pos.getY());
+            game.addObject(bullets.get(bullets.size()-1), (int)posOffset.getX(), (int)posOffset.getY());
         }
     }
 }
