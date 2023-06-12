@@ -66,8 +66,64 @@ public class Shotgun extends Weapon{
         this.numPellets = numPellets;
     }
     
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public Shotgun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed, int numPellets){
+        super(target, gif, owner, attackSpeed);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("pellet.png");
+        bulletImage.scale(9, 18);
+        bulletGif = new GifImage("plasma2.gif");
+        bulletGif.pause();
+        damage = 5;
+        this.numPellets = numPellets;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public Shotgun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed, int numPellets, int damage){
+        super(target, gif, owner, attackSpeed, damage);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("pellet.png");
+        bulletImage.scale(16, 9);
+        bulletGif = new GifImage("plasma2.gif");
+        bulletGif.pause();
+        this.numPellets = numPellets;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public Shotgun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed, int numPellets, int damage, double bulletSpeed){
+        super(target, gif, owner, attackSpeed, damage, bulletSpeed);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("pellet.png");
+        bulletImage.scale(16, 9);
+        bulletGif = new GifImage("plasma2.gif");
+        bulletGif.pause();
+        this.numPellets = numPellets;
+    }
+    
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
+            if(gif != null){
+                gif.resume();
+            }
+            
             lastAttack = game.getFrameCount();
             
             for(int i = 0; i < numPellets; i++){

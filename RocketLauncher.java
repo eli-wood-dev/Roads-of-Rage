@@ -54,10 +54,56 @@ public class RocketLauncher extends Weapon{
     }
     
     /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed){
+        super(target, gif, owner, attackSpeed);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage){
+        super(target, gif, owner, attackSpeed, damage);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        super(target, gif, owner, attackSpeed, damage, bulletSpeed);
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("rocket.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
      * shoots the gun
      */
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
+            if(gif != null){
+                gif.resume();
+            }
+            
             lastAttack = game.getFrameCount();
             
             Vector vel = Vector.sub(target, pos);

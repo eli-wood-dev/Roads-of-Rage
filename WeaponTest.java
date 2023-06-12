@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class WeaponTest extends AncestorGame{
     Weapon testGun;
     ArrayList<RoadObject> car;
+    boolean shooting = false;
     
     /**
      * Constructor for objects of class SpeedometerTest.
@@ -33,7 +34,13 @@ public class WeaponTest extends AncestorGame{
     public void act(){
         super.act();
         
-        if(mouse != null /*&& mouse.getButton() == 1*/){
+        if(mouse != null && Greenfoot.mousePressed(this)){
+            shooting = true;
+        } else if(mouse != null && Greenfoot.mouseClicked(this)){
+            shooting = false;
+        }
+        
+        if(shooting){
             testGun.shoot();
         }
     }

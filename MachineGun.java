@@ -65,10 +65,63 @@ public class MachineGun extends Weapon{
     }
     
     /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public MachineGun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed){
+        super(target, gif, owner, attackSpeed);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("plasma1.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+        damage = 5;
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public MachineGun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed, int damage){
+        super(target, gif, owner, attackSpeed, damage);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("plasma1.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @param target what to shoot at
+     * @param image the image for the gun
+     */
+    public MachineGun(Vector target, GifImage gif, int maxShotDeviance, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        super(target, gif, owner, attackSpeed, damage, bulletSpeed);
+        this.maxShotDeviance = maxShotDeviance;
+        r = new Random();
+        bulletImage = new GreenfootImage("bullet.png");
+        bulletGif = new GifImage("plasma1.gif");
+        bulletGif.pause();
+        bulletImage.scale(9, 18);
+    }
+    
+    /**
      * shoots the gun
      */
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
+            if(gif != null){
+                gif.resume();
+            }
+            
             lastAttack = game.getFrameCount();
             
             Vector vel = Vector.sub(target, pos);

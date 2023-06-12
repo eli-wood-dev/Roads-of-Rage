@@ -11,6 +11,7 @@ public abstract class Weapon extends SmoothMover{
     protected Vector pos = new Vector();
     protected Vector target = new Vector();
     protected GreenfootImage image;
+    protected GifImage gif;
     private int degRot = 0;
     protected AncestorGame game;
     ArrayList<Projectile> bullets;
@@ -48,6 +49,34 @@ public abstract class Weapon extends SmoothMover{
     }
     
     /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed){
+        this.target = target;
+        this.gif = gif;
+        setImage(gif.getCurrentImage());
+        gif.pause();
+        this.owner = owner;
+        this.attackSpeed = attackSpeed;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed, int damage){
+        this(target, gif, owner, attackSpeed);
+        this.damage = damage;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GifImage gif, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        this(target, gif, owner, attackSpeed, damage);
+        this.bulletSpeed = bulletSpeed;
+    }
+    
+    /**
      * main act function *don't override*
      * use shoot for code instead
      * 
@@ -57,6 +86,11 @@ public abstract class Weapon extends SmoothMover{
         if(game == null){
             game = (AncestorGame)getWorld();
             bullets = game.getBullets();
+        }
+        
+        if(gif != null){
+            setImage(gif.getCurrentImage());
+            gif.pause();
         }
         
         pos.setX(getExactX());
