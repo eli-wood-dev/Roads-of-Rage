@@ -13,9 +13,10 @@ public class AncestorGame extends World
 {
     /*vv GLOBAL VARIABLES vv*/
     protected double globalSpeed;
-    protected ArrayList<Actor> projectiles = new ArrayList<Actor>();//only put projectile is here
+    protected ArrayList<Projectile> projectiles = new ArrayList<Projectile>();//only put projectile is here
     protected MouseInfo mouse;
     protected Vector mousePos = new Vector();
+    protected int frameCount;//increment in all act methods
     /*^^ GLOBAL VARIABLES ^^*/
     
     /**
@@ -25,11 +26,16 @@ public class AncestorGame extends World
      * @version 1.00
      */
     public AncestorGame(int width, int height) {    
-        super(width, height, 1);
+        super(width, height, 1, false);
         mouse = Greenfoot.getMouseInfo();
     }
     
+    public int getFrameCount(){
+        return frameCount;
+    }
+    
     public void act(){
+        frameCount++;
         updateMouse();
     }
     
@@ -65,12 +71,12 @@ public class AncestorGame extends World
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public void despawn(Actor obj, ArrayList<Actor> list) {
+    public void despawn(Actor obj, ArrayList<? extends Actor> list) {
         removeObject(obj);
         list.remove(obj);
     }
     
-    public ArrayList<Actor> getBullets(){
+    public ArrayList<Projectile> getBullets(){
         return projectiles;
     }
     

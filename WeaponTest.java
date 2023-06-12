@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * test world for weapons
@@ -7,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class WeaponTest extends AncestorGame{
-    MachineGun testGun;
-    
+    Weapon testGun;
+    ArrayList<RoadObject> car;
     
     /**
      * Constructor for objects of class SpeedometerTest.
@@ -16,14 +17,23 @@ public class WeaponTest extends AncestorGame{
      */
     public WeaponTest(){
         super(600, 600);
-        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 10, null);
+        
+        car = new ArrayList<RoadObject>();
+        
+        car.add(new Car(this, car));
+        addObject(car.get(0), 500, 200);
+        
+        //testGun = new RocketLauncher(car.get(0).getPos(), new GreenfootImage("barrel.png"), null, 10, 5, 5);
+        testGun = new MachineGun(mousePos, new GreenfootImage("barrel.png"), 20, null, 10, 5);
+        //testGun = new Shotgun(mousePos, new GreenfootImage("barrel.png"), 40, null, 30, 8, 5);
+        
         addObject(testGun, 300, 300);
     }
     
     public void act(){
-        updateMouse();
+        super.act();
         
-        if(mouse != null/* && mouse.getButton() == 1*/){
+        if(mouse != null /*&& mouse.getButton() == 1*/){
             testGun.shoot();
         }
     }

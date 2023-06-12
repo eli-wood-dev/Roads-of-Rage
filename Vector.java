@@ -289,8 +289,7 @@ public class Vector{
      * @author Eli Wood
      */
     public void normalize(){
-        x /= getMag();
-        y /= getMag();
+        div(getMag());
     }
     
     /**
@@ -388,5 +387,17 @@ public class Vector{
     public void rotate(double theta){
         y = x * Math.sin(theta) + y * Math.cos(theta);
         x = x * Math.cos(theta) - y * Math.sin(theta);
+    }
+    
+    public void setRotation(double theta){
+        rotate(theta - heading());
+    }
+    
+    public boolean equals(Vector v){
+        if(v.getX() == x && v.getY() == y){
+            return true;
+        }
+        
+        return false;
     }
 }

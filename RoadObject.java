@@ -13,7 +13,7 @@ public class RoadObject extends SmoothMover implements Despawnable
     private double globalSpeed;         //the rate that the world is moving at
     private double speedMultiplier = 1; //multiplies the speed, 1 for down, -1 for up
     protected AncestorGame game;
-    protected ArrayList<Actor> list;    //the list that this object is a part of
+    protected ArrayList<RoadObject> list;    //the list that this object is a part of
     
     /**
      * Constructor for the RoadObject, initializes the Vector position.
@@ -21,8 +21,8 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public RoadObject(AncestorGame game, ArrayList<Actor> list) {
-        pos = new Vector(getX(), getY());
+    public RoadObject(AncestorGame game, ArrayList<RoadObject> list) {
+        pos = new Vector();
         this.game = game;
         this.list = list;
     }
@@ -35,6 +35,11 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @version 1.00
      */
     public void act() {
+        if(pos.getX() == 0 && pos.getY() == 0){
+            pos.setX(getExactX());
+            pos.setY(getExactY());
+        }
+        
         globalSpeed = game.getGlobalSpeed();
         pos.add(0, globalSpeed * speedMultiplier);
         
@@ -67,7 +72,7 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public void despawn(Actor a, ArrayList<Actor> list) {
+    public void despawn(Actor a, ArrayList<? extends Actor> list) {
         game.despawn(a, list);
     }
 }

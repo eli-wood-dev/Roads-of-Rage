@@ -15,9 +15,19 @@ public class Bullet extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Bullet(Vector vel, double damage, GreenfootImage img, ArrayList<Actor> list, Car ignores){
+    public Bullet(Vector vel, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
-        img.scale(9, 18);
+    }
+    
+    /**
+     * Constructor
+     * 
+     * @author Eli Wood
+     * @param img the image to use
+     * @param vel the velocity of the projectile
+     */
+    public Bullet(Vector vel, double damage, GifImage img, ArrayList<Projectile> list, Car ignores){
+        super(vel, damage, img, list, ignores);
     }
     
     public void checkEdge(){
@@ -25,12 +35,4 @@ public class Bullet extends Projectile{
             despawn(this, list);
         }
     }
-    
-    public void interact(Car c){
-        if(c != ignores){
-            //damage the car
-        }
-    }
-    
-    
 }
