@@ -38,7 +38,7 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, double damage){
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, int damage){
         super(target, image, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
@@ -54,15 +54,14 @@ public class MachineGun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, double damage, double bulletSpeed){
-        super(target, image, owner, attackSpeed, damage);
+    public MachineGun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        super(target, image, owner, attackSpeed, damage, bulletSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
-        this.bulletSpeed = bulletSpeed;
     }
     
     /**

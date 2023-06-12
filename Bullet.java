@@ -15,7 +15,7 @@ public class Bullet extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Bullet(Vector vel, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
+    public Bullet(Vector vel, int damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
     }
     
@@ -26,7 +26,7 @@ public class Bullet extends Projectile{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Bullet(Vector vel, double damage, GifImage img, ArrayList<Projectile> list, Car ignores){
+    public Bullet(Vector vel, int damage, GifImage img, ArrayList<Projectile> list, Car ignores){
         super(vel, damage, img, list, ignores);
     }
     

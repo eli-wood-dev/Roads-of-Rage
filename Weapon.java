@@ -15,7 +15,7 @@ public abstract class Weapon extends SmoothMover{
     protected AncestorGame game;
     ArrayList<Projectile> bullets;
     Car owner;
-    protected double damage;
+    protected int damage = 5;
     protected int attackSpeed;//frames between attacks
     protected int lastAttack = 0;
     protected double bulletSpeed = 5;
@@ -28,21 +28,23 @@ public abstract class Weapon extends SmoothMover{
         this.image = image;
         setImage(image);
         this.owner = owner;
-        image.rotate(90);
         this.attackSpeed = attackSpeed;
     }
     
     /**
      * Constructor
      */
-    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage){
-        this.target = target;
-        this.image = image;
-        setImage(image);
-        this.owner = owner;
-        image.rotate(90);
+    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage){
+        this(target, image, owner, attackSpeed);
         this.damage = damage;
-        this.attackSpeed = attackSpeed;
+    }
+    
+    /**
+     * Constructor
+     */
+    public Weapon(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
+        this(target, image, owner, attackSpeed, damage);
+        this.bulletSpeed = bulletSpeed;
     }
     
     /**
