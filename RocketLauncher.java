@@ -23,7 +23,6 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
-        damage = 5;
     }
     
     /**
@@ -47,12 +46,11 @@ public class RocketLauncher extends Weapon{
      * @param image the image for the gun
      */
     public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
-        super(target, image, owner, attackSpeed, damage);
+        super(target, image, owner, attackSpeed, damage, bulletSpeed);
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
-        this.bulletSpeed = bulletSpeed;
     }
     
     /**
