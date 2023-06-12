@@ -14,7 +14,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     protected AncestorGame game;
     protected ArrayList<Projectile> list;
     protected Car ignores;
-    protected double damage;
+    protected int damage;
     GifImage gif;
     
     /**
@@ -40,7 +40,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, double damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
+    public Projectile(Vector vel, int damage, GreenfootImage img, ArrayList<Projectile> list, Car ignores){
         this.img = img;
         setImage(img);
         this.vel = vel;
@@ -73,7 +73,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
      * @param img the image to use
      * @param vel the velocity of the projectile
      */
-    public Projectile(Vector vel, double damage, GifImage gif, ArrayList<Projectile> list, Car ignores){
+    public Projectile(Vector vel, int damage, GifImage gif, ArrayList<Projectile> list, Car ignores){
         this.gif = gif;
         setImage(gif.getCurrentImage());
         gif.resume();

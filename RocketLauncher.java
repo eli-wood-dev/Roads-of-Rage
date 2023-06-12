@@ -32,7 +32,7 @@ public class RocketLauncher extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage){
         super(target, image, owner, attackSpeed, damage);
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
@@ -46,7 +46,7 @@ public class RocketLauncher extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, double damage, double bulletSpeed){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
         super(target, image, owner, attackSpeed, damage);
         bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");

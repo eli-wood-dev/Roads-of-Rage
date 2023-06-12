@@ -38,7 +38,7 @@ public class Shotgun extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public Shotgun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, int numPellets, double damage){
+    public Shotgun(Vector target, GreenfootImage image, int maxShotDeviance, Car owner, int attackSpeed, int numPellets, int damage){
         super(target, image, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();

@@ -20,7 +20,7 @@ public class WeaponTest extends AncestorGame{
         
         car = new ArrayList<RoadObject>();
         
-        car.add(new Car(this, car));
+        car.add(new Car(this, car, 100));
         addObject(car.get(0), 500, 200);
         
         //testGun = new RocketLauncher(car.get(0).getPos(), new GreenfootImage("barrel.png"), null, 10, 5, 5);
