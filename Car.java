@@ -29,8 +29,8 @@ public class Car extends RoadObject
      */
     public void act() {
         super.act();
-        durability = (hp*100/maxHp*100);
-        System.out.println(durability);
+        durability = (double)(hp)/maxHp;
+        /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
         if(durability <= 0){
             despawn(this, list);
         }
