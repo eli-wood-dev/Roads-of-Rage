@@ -17,7 +17,7 @@ public class Car extends RoadObject
     /**
      * Calls the super constructor for the RoadObject.
      */
-    public Car(AncestorGame game, ArrayList<RoadObject> list, int maxHp) {
+    public Car(AncestorGame game, ArrayList<Car> list, int maxHp) {
         super(game, list);
         this.maxHp = maxHp;
         this.hp = maxHp;

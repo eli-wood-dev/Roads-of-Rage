@@ -13,6 +13,7 @@ public class Shotgun extends Weapon{
     private GreenfootImage bulletImage;
     private int numPellets;
     GifImage bulletGif;
+    boolean animating = false;
     
     /**
      * Constructor
@@ -118,9 +119,20 @@ public class Shotgun extends Weapon{
         this.numPellets = numPellets;
     }
     
+    public void act(){
+        super.act();
+        if(animating){
+            gif.advanceFrame();
+            if(gif.getCurrentImage() == gif.getImages().get(0)){
+                animating = false;
+            }
+        }
+    }
+    
     public void shoot(){
         if(game.getFrameCount() - lastAttack > attackSpeed){
             if(gif != null){
+                animating = true;
                 gif.advanceFrame();
             }
             
