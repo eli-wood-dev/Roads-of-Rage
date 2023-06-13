@@ -52,9 +52,17 @@ public class Missile extends Projectile{
         if(/*dir.heading() - vel.heading() > 0.01 || dir.heading() - vel.heading() < -0.01*/Math.abs(pos.getX() - target.getX()) > Constants.MISSILE_ALLOWANCE && Math.abs(pos.getY() - target.getY()) > Constants.MISSILE_ALLOWANCE){
             
             if(vel.heading() > dir.heading() || dir.heading() - vel.heading() > Math.PI){
-                vel.setRotation(Utilities.lerp(0, vel.heading() - dir.heading(), Constants.MISSILE_TURN_RATE) + dir.heading());
+                if(vel.heading() - dir.heading() > Constants.MISSILE_TURN_AMOUNT){
+                    vel.rotate(-Constants.MISSILE_TURN_AMOUNT);
+                } else{
+                    vel.setRotation(Utilities.lerp(0, vel.heading() - dir.heading(), Constants.MISSILE_TURN_RATE) + dir.heading());
+                }
             } else{
-                vel.setRotation(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE));
+                if(vel.heading() - dir.heading() < -Constants.MISSILE_TURN_AMOUNT){
+                    vel.rotate(Constants.MISSILE_TURN_AMOUNT);
+                } else{
+                    vel.setRotation(Utilities.lerp(vel.heading(), dir.heading(), Constants.MISSILE_TURN_RATE));
+                }
             }
             
             //vel.setRotation(dir.heading());

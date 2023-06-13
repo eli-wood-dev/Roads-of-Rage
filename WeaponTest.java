@@ -47,9 +47,9 @@ public class WeaponTest extends AncestorGame{
         rocket.scale(96, 96);
         rocket.rotate(90);
         
-        //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 5, 5);
+        testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 5, 5);
         //testGun = new MachineGun(mousePos, machineGif, 20, car.get(0), 10, 5, 5);
-        testGun = new Shotgun(mousePos, shotGif, 40, car.get(0), 30, 8, 5, 5);
+        //testGun = new Shotgun(mousePos, shotGif, 40, car.get(0), 30, 8, 5, 5);
         
         addObject(testGun, 300, 300);
     }
