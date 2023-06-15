@@ -23,6 +23,9 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
@@ -37,6 +40,9 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
@@ -51,6 +57,9 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
@@ -65,6 +74,9 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
@@ -79,6 +91,9 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
@@ -93,6 +108,10 @@ public class RocketLauncher extends Weapon{
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
         bulletImage.scale(9, 18);
+        
+        for(GreenfootImage g : bulletGif.getImages()){
+            g.scale(16, 32);
+        }
     }
     
     /**
