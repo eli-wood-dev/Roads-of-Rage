@@ -18,7 +18,7 @@ public class Explosion extends Actor
         //        setLocation(a.getX(), a.getY());
         image = new GifImage("explosion.gif");
         setImage(image.getCurrentImage());
-        size = (int)(a.getImage().getWidth()*0.9);
+        size = (int)(a.getImage().getWidth()*1.1);
         getImage().scale(size, size);
         sound = new GreenfootSound("explode.wav");
         /*
