@@ -336,6 +336,11 @@ public class Vector{
      * @return the angle between the two Vectors
      */
     public static double angleBetween(Vector v1, Vector v2){
+        /*
+        double amt = v1.dot(v2)/(v1.getMag() * v2.getMag());
+        
+        return Math.acos(amt);
+        */
         return v2.heading() - v1.heading();
     }
     
