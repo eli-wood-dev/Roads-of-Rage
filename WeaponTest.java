@@ -57,9 +57,9 @@ public class WeaponTest extends AncestorGame{
     public void act(){
         super.act();
         
-        if(mouse != null && Greenfoot.mousePressed(this)){
+        if(mouse != null && Greenfoot.mousePressed(null)){
             shooting = true;
-        } else if(mouse != null && Greenfoot.mouseClicked(this)){
+        } else if(mouse != null && Greenfoot.mouseClicked(null)){
             shooting = false;
         }
         
