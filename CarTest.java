@@ -18,7 +18,7 @@ public class CarTest extends AncestorGame{
     public CarTest(){
         super(1500, 645);   //almost ultrawide, about 21:9
         
-        objects.add(new RoadObject(this, objects, 400, 400));
+        objects.add(new RoadObject(this, objects));
         addObject(objects.get(0), 400, 400);
         globalSpeed = 1;
     }
