@@ -58,6 +58,5 @@ public class SpeedometerTest extends AncestorGame{
         }
         
         spdMtr.updateValues(speed, numNitro, false);
-        System.out.println(speed);
     }
 }
