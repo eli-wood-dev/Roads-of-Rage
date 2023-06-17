@@ -1,0 +1,14 @@
+@startuml
+
+class Speedometer
+Speedometer : - speed : double
+Speedometer : - numNitros : int
+Speedometer : - stick : SpeedometerStick
+Speedometer : - LOW_LIMIT : int
+Speedometer : - HI_LIMIT : int
+Speedometer : - isBoosting : boolean
+
+Speedometer : + updateValues() : void
+Speedometer : - act() : void
+
+@enduml
