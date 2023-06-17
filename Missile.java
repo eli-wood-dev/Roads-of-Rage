@@ -41,9 +41,11 @@ public class Missile extends Projectile{
             despawn(this, list);
         }
         
+        /*
         if(Math.abs(pos.getX() - target.getX()) < 5 && Math.abs(pos.getY() - target.getY()) < 5){
             despawn(this, list);
         }
+        */
     }
     
     protected void rotateStraight(){

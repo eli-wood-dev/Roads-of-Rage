@@ -9,10 +9,10 @@ import java.util.ArrayList;
  */
 public class Car extends RoadObject
 {
-    private double localSpeed;      //the rate that the car can move locally on the screen
-    private double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
-    private int hp;                 //current health of the Car
-    private int maxHp;              //the maximum health of the Car
+    protected double localSpeed;      //the rate that the car can move locally on the screen
+    protected double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
+    protected int hp;                 //current health of the Car
+    protected int maxHp;              //the maximum health of the Car
     
     /**
      * Calls the super constructor for the RoadObject.
@@ -21,6 +21,16 @@ public class Car extends RoadObject
         super(game, list);
         this.maxHp = maxHp;
         this.hp = maxHp;
+    }
+    
+    /**
+     * Calls the super constructor for the RoadObject.
+     */
+    public Car(AncestorGame game, ArrayList<Car> list, Weapon w, int maxHp) {
+        super(game, list, w);
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        gun.setOwner(this);//kind of a temporary fix, weapon should probably be created by the car
     }
     
     /**
@@ -57,5 +67,9 @@ public class Car extends RoadObject
      */
     public void hurt(int damage){
         hp -= damage;
+    }
+    
+    public void setLocalSpeed(double speed){
+        this.localSpeed = speed;
     }
 }

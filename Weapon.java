@@ -14,8 +14,8 @@ public abstract class Weapon extends SmoothMover{
     protected GifImage gif;
     private int degRot = 0;
     protected AncestorGame game;
-    ArrayList<Projectile> bullets;
-    Car owner;
+    protected ArrayList<Projectile> bullets;
+    protected Car owner;
     protected int damage = 5;
     protected int attackSpeed;//frames between attacks
     protected int lastAttack = 0;
@@ -126,5 +126,21 @@ public abstract class Weapon extends SmoothMover{
         
         
         
+    }
+    
+    /**
+     * despawns the weapon
+     * doesn't implement despawnable because it shouldn't be stored in an arraylist
+     */
+    public void despawn(){
+        game.removeObject(this);
+    }
+    
+    public Car getOwner(){
+        return owner;
+    }
+    
+    public void setOwner(Car owner){
+        this.owner = owner;
     }
 }
