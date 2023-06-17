@@ -14,16 +14,23 @@ dependency1.from=AncestorGame
 dependency1.to=Projectile
 dependency1.type=UsesDependency
 <<<<<<< HEAD
+dependency10.from=Explosion
+dependency10.to=GifImage
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
 dependency10.from=SmoothMover
 dependency10.to=Vector
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency10.type=UsesDependency
-dependency11.from=RoadObject
+dependency11.from=SmoothMover
 dependency11.to=Vector
 dependency11.type=UsesDependency
 dependency12.from=RoadObject
+<<<<<<< HEAD
+=======
 dependency12.to=AncestorGame
 dependency12.type=UsesDependency
 dependency13.from=Car
@@ -55,27 +62,31 @@ dependency11.from=Explosion
 dependency11.to=GifImage
 dependency11.type=UsesDependency
 dependency12.from=SmoothMover
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency12.to=Vector
 dependency12.type=UsesDependency
 dependency13.from=RoadObject
-dependency13.to=Vector
+dependency13.to=AncestorGame
 dependency13.type=UsesDependency
-dependency14.from=RoadObject
+dependency14.from=Car
 dependency14.to=AncestorGame
 dependency14.type=UsesDependency
-dependency15.from=Car
-dependency15.to=AncestorGame
+dependency15.from=Speedometer
+dependency15.to=SpeedometerStick
 dependency15.type=UsesDependency
 dependency16.from=Speedometer
-dependency16.to=SpeedometerStick
+dependency16.to=AncestorGame
 dependency16.type=UsesDependency
-dependency17.from=Speedometer
-dependency17.to=AncestorGame
+dependency17.from=Weapon
+dependency17.to=Vector
 dependency17.type=UsesDependency
 dependency18.from=Weapon
-dependency18.to=Vector
+dependency18.to=GifImage
 dependency18.type=UsesDependency
 dependency19.from=Weapon
+<<<<<<< HEAD
+dependency19.to=AncestorGame
+=======
 dependency19.to=GifImage
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 =======
@@ -86,11 +97,15 @@ dependency18.type=UsesDependency
 dependency19.from=Weapon
 dependency19.to=Projectile
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency19.type=UsesDependency
 dependency2.from=AncestorGame
 dependency2.to=Vector
 dependency2.type=UsesDependency
 dependency20.from=Weapon
+<<<<<<< HEAD
+dependency20.to=Projectile
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -126,32 +141,36 @@ dependency29.from=MachineGun
 dependency29.to=GifImage
 =======
 dependency20.to=AncestorGame
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency20.type=UsesDependency
 dependency21.from=Weapon
-dependency21.to=Projectile
+dependency21.to=Car
 dependency21.type=UsesDependency
-dependency22.from=Weapon
-dependency22.to=Car
+dependency22.from=Shotgun
+dependency22.to=GifImage
 dependency22.type=UsesDependency
 dependency23.from=Shotgun
-dependency23.to=GifImage
+dependency23.to=Vector
 dependency23.type=UsesDependency
 dependency24.from=Shotgun
-dependency24.to=Vector
+dependency24.to=Car
 dependency24.type=UsesDependency
 dependency25.from=Shotgun
-dependency25.to=Car
+dependency25.to=Bullet
 dependency25.type=UsesDependency
-dependency26.from=Shotgun
-dependency26.to=Bullet
+dependency26.from=MachineGun
+dependency26.to=GifImage
 dependency26.type=UsesDependency
 dependency27.from=MachineGun
-dependency27.to=GifImage
+dependency27.to=Vector
 dependency27.type=UsesDependency
 dependency28.from=MachineGun
-dependency28.to=Vector
+dependency28.to=Car
 dependency28.type=UsesDependency
 dependency29.from=MachineGun
+<<<<<<< HEAD
+dependency29.to=Bullet
+=======
 dependency29.to=Car
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 =======
@@ -177,10 +196,15 @@ dependency28.type=UsesDependency
 dependency29.from=MachineGun
 dependency29.to=GifImage
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency29.type=UsesDependency
 dependency3.from=WeaponTest
 dependency3.to=Weapon
 dependency3.type=UsesDependency
+<<<<<<< HEAD
+dependency30.from=RocketLauncher
+dependency30.to=GifImage
+=======
 dependency30.from=MachineGun
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -217,51 +241,69 @@ dependency39.to=GifImage
 <<<<<<< HEAD
 =======
 dependency30.to=Bullet
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency30.type=UsesDependency
 dependency31.from=RocketLauncher
-dependency31.to=GifImage
+dependency31.to=Vector
 dependency31.type=UsesDependency
 dependency32.from=RocketLauncher
-dependency32.to=Vector
+dependency32.to=Car
 dependency32.type=UsesDependency
 dependency33.from=RocketLauncher
-dependency33.to=Car
+dependency33.to=Missile
 dependency33.type=UsesDependency
-dependency34.from=RocketLauncher
-dependency34.to=Missile
+dependency34.from=SpeedometerStick
+dependency34.to=Utilities
 dependency34.type=UsesDependency
 dependency35.from=SpeedometerStick
-dependency35.to=Utilities
+dependency35.to=Constants
 dependency35.type=UsesDependency
-dependency36.from=SpeedometerStick
-dependency36.to=Constants
+dependency36.from=Projectile
+dependency36.to=Vector
 dependency36.type=UsesDependency
 dependency37.from=Projectile
-dependency37.to=Vector
+dependency37.to=AncestorGame
 dependency37.type=UsesDependency
 dependency38.from=Projectile
-dependency38.to=AncestorGame
+dependency38.to=Car
 dependency38.type=UsesDependency
 dependency39.from=Projectile
+<<<<<<< HEAD
+dependency39.to=GifImage
+=======
 dependency39.to=Car
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 =======
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency39.type=UsesDependency
 dependency4.from=WeaponTest
 dependency4.to=Car
 dependency4.type=UsesDependency
 <<<<<<< HEAD
+dependency40.from=Bullet
+=======
+<<<<<<< HEAD
 dependency40.from=Missile
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency40.to=Vector
 dependency40.type=UsesDependency
-dependency41.from=Missile
+dependency41.from=Bullet
 dependency41.to=Car
 dependency41.type=UsesDependency
-dependency42.from=Missile
+dependency42.from=Bullet
 dependency42.to=GifImage
 dependency42.type=UsesDependency
 dependency43.from=Missile
+<<<<<<< HEAD
+dependency43.to=Vector
+dependency43.type=UsesDependency
+dependency44.from=Missile
+dependency44.to=Car
+dependency44.type=UsesDependency
+dependency45.from=Missile
+dependency45.to=GifImage
+=======
 <<<<<<< HEAD
 dependency43.to=Constants
 dependency43.type=UsesDependency
@@ -292,19 +334,22 @@ dependency44.to=Vector
 dependency44.type=UsesDependency
 dependency45.from=Missile
 dependency45.to=Car
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency45.type=UsesDependency
 dependency46.from=Missile
-dependency46.to=GifImage
+dependency46.to=Explosion
 dependency46.type=UsesDependency
 dependency47.from=Missile
-dependency47.to=Explosion
+dependency47.to=Constants
 dependency47.type=UsesDependency
 dependency48.from=Missile
-dependency48.to=Constants
+dependency48.to=Utilities
 dependency48.type=UsesDependency
-dependency49.from=Missile
-dependency49.to=Utilities
+dependency49.from=AbstRoad
+dependency49.to=RoadTest
 dependency49.type=UsesDependency
+<<<<<<< HEAD
+=======
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 =======
 dependency43.to=Explosion
@@ -322,19 +367,20 @@ dependency47.from=SpeedometerStick
 dependency47.to=Constants
 dependency47.type=UsesDependency
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency5.from=WeaponTest
 dependency5.to=GifImage
 dependency5.type=UsesDependency
-dependency50.from=AbstRoad
+dependency50.from=Road
 dependency50.to=RoadTest
 dependency50.type=UsesDependency
-dependency51.from=Road
-dependency51.to=RoadTest
-dependency51.type=UsesDependency
 dependency6.from=WeaponTest
 dependency6.to=RocketLauncher
 dependency6.type=UsesDependency
 dependency7.from=WeaponTest
+<<<<<<< HEAD
+dependency7.to=Projectile
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 dependency7.to=MachineGun
@@ -344,10 +390,13 @@ dependency7.to=Projectile
 =======
 dependency7.to=Shotgun
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency7.type=UsesDependency
 dependency8.from=RoadTest
 dependency8.to=Road
 dependency8.type=UsesDependency
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 dependency9.from=CarTest
@@ -361,16 +410,19 @@ height=1056
 package.numDependencies=46
 package.numTargets=22
 =======
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 dependency9.from=SpeedometerTest
 dependency9.to=Speedometer
 dependency9.type=UsesDependency
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
+editor.fx.0.height=1047
+editor.fx.0.width=974
+editor.fx.0.x=-7
 editor.fx.0.y=0
-height=878
-package.numDependencies=51
+height=1056
+package.numDependencies=50
 package.numTargets=25
+<<<<<<< HEAD
+=======
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 =======
 dependency9.from=Explosion
@@ -384,6 +436,7 @@ height=878
 package.numDependencies=47
 package.numTargets=22
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 project.charset=windows-1252
 publish.hasSource=false
 publish.locked=true
@@ -409,8 +462,12 @@ target10.height=70
 <<<<<<< HEAD
 target10.name=AncestorGame
 =======
+<<<<<<< HEAD
+target10.name=AncestorGame
+=======
 target10.name=RocketLauncher
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target10.showInterface=false
 target10.type=ClassTarget
 target10.width=120
@@ -422,10 +479,16 @@ target11.name=Despawnable
 target11.showInterface=false
 target11.type=InterfaceTarget
 =======
+<<<<<<< HEAD
+target11.name=Despawnable
+target11.showInterface=false
+target11.type=InterfaceTarget
+=======
 target11.name=Weapon
 target11.showInterface=false
 target11.type=AbstractTarget
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target11.width=120
 target11.x=0
 target11.y=0
@@ -433,8 +496,12 @@ target12.height=70
 <<<<<<< HEAD
 target12.name=Vector
 =======
+<<<<<<< HEAD
+target12.name=Vector
+=======
 target12.name=WeaponTest
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=120
@@ -444,10 +511,14 @@ target13.height=70
 <<<<<<< HEAD
 target13.name=Bullet
 =======
+<<<<<<< HEAD
+target13.name=Bullet
+=======
 target13.name=Projectile
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target13.showInterface=false
-target13.type=AbstractTarget
+target13.type=ClassTarget
 target13.width=120
 target13.x=0
 target13.y=0
@@ -455,8 +526,12 @@ target14.height=70
 <<<<<<< HEAD
 target14.name=Explosion
 =======
+<<<<<<< HEAD
+target14.name=Explosion
+=======
 target14.name=GifImage
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target14.showInterface=false
 target14.type=ClassTarget
 target14.width=120
@@ -466,8 +541,12 @@ target15.height=70
 <<<<<<< HEAD
 target15.name=SimpleTimer
 =======
+<<<<<<< HEAD
+target15.name=SimpleTimer
+=======
 target15.name=Missile
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target15.showInterface=false
 target15.type=ClassTarget
 target15.width=120
@@ -477,8 +556,12 @@ target16.height=70
 <<<<<<< HEAD
 target16.name=Road
 =======
+<<<<<<< HEAD
+target16.name=Road
+=======
 target16.name=MachineGun
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=120
@@ -488,14 +571,21 @@ target17.height=70
 <<<<<<< HEAD
 target17.name=SmoothMover
 =======
+<<<<<<< HEAD
+target17.name=SmoothMover
+=======
 target17.name=Utilities
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target17.showInterface=false
 target17.type=AbstractTarget
 target17.width=120
 target17.x=0
 target17.y=0
 target18.height=70
+<<<<<<< HEAD
+target18.name=SpeedometerTest
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 target18.name=CarTest
@@ -505,12 +595,16 @@ target18.name=SpeedometerTest
 =======
 target18.name=SpeedometerStick
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target18.showInterface=false
 target18.type=ClassTarget
 target18.width=120
 target18.x=0
 target18.y=0
 target19.height=70
+<<<<<<< HEAD
+target19.name=Constants
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 target19.name=Car
@@ -520,6 +614,7 @@ target19.name=Constants
 =======
 target19.name=Car
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=120
@@ -529,14 +624,21 @@ target2.height=70
 <<<<<<< HEAD
 target2.name=Speedometer
 =======
+<<<<<<< HEAD
+target2.name=Speedometer
+=======
 target2.name=Explosion
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
 target2.x=0
 target2.y=0
 target20.height=70
+<<<<<<< HEAD
+target20.name=RocketLauncher
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 target20.name=AncestorGame
@@ -546,12 +648,18 @@ target20.name=RocketLauncher
 =======
 target20.name=AncestorGame
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=120
 target20.x=0
 target20.y=0
 target21.height=70
+<<<<<<< HEAD
+target21.name=Projectile
+target21.showInterface=false
+target21.type=AbstractTarget
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 target21.name=Despawnable
@@ -567,10 +675,14 @@ target21.name=Despawnable
 target21.showInterface=false
 target21.type=InterfaceTarget
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target21.width=120
 target21.x=0
 target21.y=0
 target22.height=70
+<<<<<<< HEAD
+target22.name=GifImage
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 target22.name=Vector
@@ -580,14 +692,18 @@ target22.name=GifImage
 =======
 target22.name=Vector
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target22.showInterface=false
 target22.type=ClassTarget
 target22.width=120
 target22.x=0
 target22.y=0
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target23.height=70
 target23.name=Missile
 target23.showInterface=false
@@ -612,10 +728,13 @@ target25.y=0
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
 target3.height=70
 target3.name=Shotgun
+<<<<<<< HEAD
+=======
 =======
 target3.height=70
 target3.name=SimpleTimer
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
@@ -625,10 +744,14 @@ target4.height=70
 <<<<<<< HEAD
 target4.name=Weapon
 =======
+<<<<<<< HEAD
+target4.name=Weapon
+=======
 target4.name=RoadObject
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target4.showInterface=false
-target4.type=ClassTarget
+target4.type=AbstractTarget
 target4.width=120
 target4.x=0
 target4.y=0
@@ -636,10 +759,14 @@ target5.height=70
 <<<<<<< HEAD
 target5.name=WeaponTest
 =======
+<<<<<<< HEAD
+target5.name=WeaponTest
+=======
 target5.name=SmoothMover
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target5.showInterface=false
-target5.type=AbstractTarget
+target5.type=ClassTarget
 target5.width=120
 target5.x=0
 target5.y=0
@@ -647,8 +774,12 @@ target6.height=70
 <<<<<<< HEAD
 target6.name=RoadTest
 =======
+<<<<<<< HEAD
+target6.name=RoadTest
+=======
 target6.name=SpeedometerTest
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=120
@@ -658,8 +789,12 @@ target7.height=70
 <<<<<<< HEAD
 target7.name=MachineGun
 =======
+<<<<<<< HEAD
+target7.name=MachineGun
+=======
 target7.name=Speedometer
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
@@ -669,8 +804,12 @@ target8.height=70
 <<<<<<< HEAD
 target8.name=Utilities
 =======
+<<<<<<< HEAD
+target8.name=Utilities
+=======
 target8.name=Constants
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
@@ -680,8 +819,12 @@ target9.height=70
 <<<<<<< HEAD
 target9.name=SpeedometerStick
 =======
+<<<<<<< HEAD
+target9.name=SpeedometerStick
+=======
 target9.name=Shotgun
 >>>>>>> e102307ac43c6805788fcfdca5c4dd1fc2185c04
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=120
@@ -689,10 +832,15 @@ target9.x=0
 target9.y=0
 version=3.0.0
 width=1936
+<<<<<<< HEAD
+world.lastInstantiated=SpeedometerTest
+xPosition=0
+=======
 world.lastInstantiated=WeaponTest
 <<<<<<< HEAD
 xPosition=0
 =======
 xPosition=56
 >>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
+>>>>>>> d3d4dd4f65611cc44479f3163bbb622a033fc1b3
 yPosition=0
