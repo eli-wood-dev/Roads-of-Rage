@@ -32,6 +32,15 @@ public class Vector{
     }
 
     /**
+     * toString
+     * @return useful information about the Vector
+     * @author Zachary Sousa
+     */
+    public String toString() {
+        return "x= " + x + " y= " + y + " mag= " + getMag();
+    }
+    
+    /**
      * gets the x
      * 
      * @author Eli Wood
@@ -336,7 +345,34 @@ public class Vector{
      * @return the angle between the two Vectors
      */
     public static double angleBetween(Vector v1, Vector v2){
-        return v2.heading() - v1.heading();
+         // We get NaN if we pass in a zero vector which can cause problems
+        // Zero seems like a reasonable angle between a (0,0,0) vector and something else
+        if (v1.x == 0 && v1.y == 0) return 0.0;
+        if (v2.x == 0 && v2.y == 0) return 0.0;
+    
+        double dot = v1.x * v2.x + v1.y * v2.y;
+        double v1mag = Math.sqrt(v1.x * v1.x + v1.y * v1.y);
+        double v2mag = Math.sqrt(v2.x * v2.x + v2.y * v2.y);
+        // This should be a number between -1 and 1, since it's "normalized"
+        double amt = dot / (v1mag * v2mag);
+        // But if it's not due to rounding error, then we need to fix it
+        // http://code.google.com/p/processing/issues/detail?id=340
+        // Otherwise if outside the range, acos() will return NaN
+        // http://www.cppreference.com/wiki/c/math/acos
+        if (amt <= -1) {
+          return Math.PI;
+        } else if (amt >= 1) {
+          // http://code.google.com/p/processing/issues/detail?id=435
+          return 0;
+        }
+        return Math.acos(amt);
+        
+        /*
+        double amt = v1.dot(v2)/(v1.getMag() * v2.getMag());
+        
+        return Math.acos(amt);
+        */
+        //return v2.heading() - v1.heading();
     }
     
     /**

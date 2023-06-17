@@ -16,8 +16,8 @@ public class SpeedometerTest extends AncestorGame{
      * 
      */
     public SpeedometerTest(){
-        super(600, 600);
-        spdMtr = new Speedometer();
+        super(1500, 645);   //almost ultrawide, about 21:9
+         spdMtr = new Speedometer();
         addObject(spdMtr, 400, 400);
     }
     

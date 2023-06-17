@@ -26,7 +26,7 @@ public class WeaponTest extends AncestorGame{
         
         car = new ArrayList<Car>();
         
-        car.add(new Car(this, car, 100));
+        car.add(new Car(this, car, 100, 400, 400));
         addObject(car.get(0), 300, 300);
         
         machineGif = new GifImage("machineTurret.gif");
@@ -47,8 +47,13 @@ public class WeaponTest extends AncestorGame{
         rocket.scale(96, 96);
         rocket.rotate(90);
         
+<<<<<<< HEAD
+        //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 5, 5);
+        testGun = new MachineGun(mousePos, machineGif, 20, car.get(0), 10, 5, 5);
+=======
         testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 5, 5);
         //testGun = new MachineGun(mousePos, machineGif, 20, car.get(0), 10, 5, 5);
+>>>>>>> 387a6bddb2fd1a2a121acdcdd6d8647ff479e2a5
         //testGun = new Shotgun(mousePos, shotGif, 40, car.get(0), 30, 8, 5, 5);
         
         addObject(testGun, 300, 300);
@@ -57,9 +62,9 @@ public class WeaponTest extends AncestorGame{
     public void act(){
         super.act();
         
-        if(mouse != null && Greenfoot.mousePressed(this)){
+        if(mouse != null && Greenfoot.mousePressed(null)){
             shooting = true;
-        } else if(mouse != null && Greenfoot.mouseClicked(this)){
+        } else if(mouse != null && Greenfoot.mouseClicked(null)){
             shooting = false;
         }
         
