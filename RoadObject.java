@@ -22,7 +22,6 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @version 1.00
      */
     public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
-        pos = new Vector();
         this.game = game;
         this.list = list;
     }
