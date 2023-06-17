@@ -21,10 +21,12 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
+    public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list, double x, double y) {
         pos = new Vector();
         this.game = game;
         this.list = list;
+        pos.setX(x);
+        pos.setY(y);
     }
     
     /**
@@ -35,15 +37,13 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @version 1.00
      */
     public void act() {
-        if(pos.getX() == 0 && pos.getY() == 0){
-            pos.setX(getExactX());
-            pos.setY(getExactY());
-        }
+        System.out.println(pos);
         
         globalSpeed = game.getGlobalSpeed();
+        System.out.println(globalSpeed);
         pos.add(0, globalSpeed * speedMultiplier);
         
-        setLocation(pos.getX(), pos.getY());    //update actor position to match pos
+        setLocation(getX(), pos.getY());    //update actor position to match pos
     }
     
     /**
