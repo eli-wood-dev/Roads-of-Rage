@@ -104,6 +104,10 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
         
         setLocation(pos);
         
+        //move(vel.getMag());
+        
+        //pos.set(getExactX(), getExactY());
+        
         if(getIntersectingObjects(Car.class) != null){
             for(Car c: getIntersectingObjects(Car.class)){
                 interact(c);
