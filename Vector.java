@@ -32,6 +32,15 @@ public class Vector{
     }
 
     /**
+     * toString
+     * @return useful information about the Vector
+     * @author Zachary Sousa
+     */
+    public String toString() {
+        return "x= " + x + " y= " + y + " mag= " + getMag();
+    }
+    
+    /**
      * gets the x
      * 
      * @author Eli Wood
