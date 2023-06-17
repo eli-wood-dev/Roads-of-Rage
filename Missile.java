@@ -40,6 +40,10 @@ public class Missile extends Projectile{
         if(frame > Constants.MISSILE_LIFESPAN){
             despawn(this, list);
         }
+        
+        if(Math.abs(pos.getX() - target.getX()) < 5 && Math.abs(pos.getY() - target.getY()) < 5){
+            despawn(this, list);
+        }
     }
     
     protected void rotateStraight(){
@@ -49,13 +53,15 @@ public class Missile extends Projectile{
         
         double speed = vel.getMag();
         
+        //vel.normalize();
+        
         if(/*dir.heading() - vel.heading() > 0.01 || dir.heading() - vel.heading() < -0.01*/Math.abs(pos.getX() - target.getX()) > Constants.MISSILE_ALLOWANCE && Math.abs(pos.getY() - target.getY()) > Constants.MISSILE_ALLOWANCE){
             
-            if(vel.heading() > dir.heading() || dir.heading() - vel.heading() > Math.PI){
+            if(vel.heading() > dir.heading() || Vector.angleBetween(vel, dir) > Math.PI){
                 if(vel.heading() - dir.heading() > Constants.MISSILE_TURN_AMOUNT){
                     vel.rotate(-Constants.MISSILE_TURN_AMOUNT);
                 } else{
-                    vel.setRotation(Utilities.lerp(0, vel.heading() - dir.heading(), Constants.MISSILE_TURN_RATE) + dir.heading());
+                    vel.setRotation(Utilities.lerp(0, Vector.angleBetween(dir, vel), Constants.MISSILE_TURN_RATE) + dir.heading());
                 }
             } else{
                 if(vel.heading() - dir.heading() < -Constants.MISSILE_TURN_AMOUNT){
