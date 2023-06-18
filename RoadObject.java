@@ -14,8 +14,9 @@ public class RoadObject extends SmoothMover implements Despawnable
     protected double speedMultiplier = 1;              //multiplies the speed, 1 for down, -1 for up
     protected AncestorGame game;
     protected ArrayList<? extends RoadObject> list;    //the list that this object is a part of
-    protected Weapon gun;                              //the gun on top of the road object(usually for cars)
     protected Vector vel = new Vector(0, 0);           //current speed(only here to prevent ordering problems)
+    
+    protected Weapon w;
     
     /**
      * Constructor for the RoadObject, initializes the Vector position.
@@ -26,18 +27,6 @@ public class RoadObject extends SmoothMover implements Despawnable
     public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
         this.game = game;
         this.list = list;
-    }
-    
-    /**
-     * Constructor for the RoadObject, initializes the Vector position.
-     * 
-     * @author  Zachary Sousa
-     * @version 1.00
-     */
-    public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list, Weapon w) {
-        this.game = game;
-        this.list = list;
-        gun = w;//gun MUST be added to the game
     }
     
     /**
@@ -58,8 +47,8 @@ public class RoadObject extends SmoothMover implements Despawnable
         
         setLocation(pos);    //update actor position to match pos
         
-        if(gun != null){
-            gun.setLocation(pos);
+        if(pos.getX() > game.getWidth() || pos.getX() < 0 || pos.getY() > game.getHeight() || pos.getY() < 0){
+            despawn();
         }
     }
     
@@ -89,9 +78,11 @@ public class RoadObject extends SmoothMover implements Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public void despawn(Actor a, ArrayList<? extends Actor> list) {
-        gun.despawn();//maybe make this drop the gun instead?
-        game.despawn(a, list);
+    public void despawn(/*Actor a, ArrayList<? extends Actor> list*/) {
+        if(w != null){
+            w.despawn();
+        }
+        game.despawn(this, list);
     }
     
     /**
@@ -102,9 +93,28 @@ public class RoadObject extends SmoothMover implements Despawnable
         vel = v;
     }
     
+    /**
+     * shoots the gun
+     */
     public void shoot(){
-        if(gun != null){
-            gun.shoot();
+        if(w != null){
+            w.shoot();
         }
+        
+    }
+    
+    /**
+     * sets the gun
+     * should only be called by a gun
+     */
+    public void setGun(Weapon w){
+        this.w = w;
+    }
+    
+    /**
+     * gets the car's gun
+     */
+    public Weapon getGun(){
+        return w;
     }
 }

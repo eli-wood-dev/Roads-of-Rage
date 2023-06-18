@@ -38,7 +38,7 @@ public class Missile extends Projectile{
     public void checkEdge(){
         frame++;
         if(frame > Constants.MISSILE_LIFESPAN){
-            despawn(this, list);
+            despawn();
         }
         
         /*
@@ -83,9 +83,9 @@ public class Missile extends Projectile{
         setRotation(getRotation() + 90);
     }
     
-    public void despawn(Actor a, ArrayList<? extends Actor> list){
+    public void despawn(/*Actor a, ArrayList<? extends Actor> list*/){
         game.addObject(new Explosion(this), getX(), getY());
         
-        super.despawn(this, list);
+        super.despawn();
     }
 }

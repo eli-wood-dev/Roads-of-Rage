@@ -16,5 +16,5 @@ public interface Despawnable
      * @author  Zachary Sousa
      * @version 1.00
      */
-    public void despawn(Actor a, ArrayList<? extends Actor> list);
+    public void despawn(/*Actor a, ArrayList<? extends Actor> list*/);
 }

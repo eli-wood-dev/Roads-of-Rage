@@ -24,16 +24,6 @@ public class Car extends RoadObject
     }
     
     /**
-     * Calls the super constructor for the RoadObject.
-     */
-    public Car(AncestorGame game, ArrayList<Car> list, Weapon w, int maxHp) {
-        super(game, list, w);
-        this.maxHp = maxHp;
-        this.hp = maxHp;
-        gun.setOwner(this);//kind of a temporary fix, weapon should probably be created by the car
-    }
-    
-    /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -42,7 +32,7 @@ public class Car extends RoadObject
         durability = (double)(hp)/maxHp;
         /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
         if(durability <= 0){
-            despawn(this, list);
+            despawn();
         }
     }
     
@@ -63,7 +53,7 @@ public class Car extends RoadObject
     
     /**
      * decrements the hp of the Car
-     * @param damage        the amount of damage for the Car to recieve
+     * @param damage        the amount of damage for the Car to receive
      */
     public void hurt(int damage){
         hp -= damage;
