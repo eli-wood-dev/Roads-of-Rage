@@ -49,6 +49,10 @@ public class Missile extends Projectile{
     }
     
     protected void rotateStraight(){
+        if(target == null){//make sure there is always a target
+            target = new Vector();
+        }
+        
         //rotate vel to target
         Vector dir = Vector.sub(target, pos);
         dir.normalize();

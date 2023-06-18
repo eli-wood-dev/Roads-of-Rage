@@ -16,6 +16,7 @@ public class WeaponTest extends AncestorGame{
     GifImage shotGif;
     GreenfootImage rocket;
     boolean alive = true;
+    GifImage carGif;
     
     /**
      * Constructor for objects of class SpeedometerTest.
@@ -23,6 +24,17 @@ public class WeaponTest extends AncestorGame{
      */
     public WeaponTest(){
         super(1500, 645);
+        
+        
+        ArrayList<GreenfootImage> temp = new ArrayList<GreenfootImage>();
+        for(int i = 0; i < 3; i++){
+            temp.add(new GreenfootImage("car" + i + ".png"));
+            temp.add(new GreenfootImage("car" + i + "Left.png"));
+            temp.add(new GreenfootImage("car" + i + "Right.png"));
+        }
+        
+        carGif = new GifImage(temp);
+        
         
         globalSpeed = 5;
         
@@ -47,14 +59,14 @@ public class WeaponTest extends AncestorGame{
             g.rotate(90);
         }
         
-        car.add(new Car(this, car, 1000));
+        car.add(new Car(this, car, new GifImage(carGif), 1000));
         addObject(car.get(0), 300, 300);
         car.get(0).setVel(new Vector(0, -globalSpeed));
         
         rocket.scale(96, 96);
         rocket.rotate(90);
         
-        //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 5, 7);
+        //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 10, 7);
         //testGun = new MachineGun(mousePos, machineGif, 20, car.get(0), 10, 5, 5);
         testGun = new Shotgun(mousePos, shotGif, 40, car.get(0), 30, 8, 5, 5);
         
@@ -77,17 +89,24 @@ public class WeaponTest extends AncestorGame{
         }
         
         if(frameCount % 30 == 0){
-            enemy.add(new Car(this, enemy, 1));
-            addObject(enemy.get(enemy.size()-1), 600, 0);
-            
-            
-            Weapon g;
-            if(car.size() > 0){
-                g = new MachineGun(car.get(0).getPos(), new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
-            } else{
-                g = new MachineGun(new Vector(), new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
+            for(int i = 0; i < 2; i++){
+                enemy.add(new Car(this, enemy, new GifImage(carGif), 15));
+                addObject(enemy.get(enemy.size()-1), 600 + i * 100, 0);
+                
+                
+                Weapon g;
+                Vector target = new Vector();
+                if(car.size() > 0){
+                    target = car.get(0).getPos().copy();
+                } 
+                
+                //g = new MachineGun(target, new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
+                g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 7);
+                //g = new Shotgun(target, shotGif, 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
+                
+                addObject(g, 600 + i * 100, 0);
             }
-            addObject(g, 600, 0);
+            
         }
         
         //System.out.println(enemy.size());

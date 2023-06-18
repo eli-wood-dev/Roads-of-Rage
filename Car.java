@@ -13,6 +13,10 @@ public class Car extends RoadObject
     protected double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
     protected int hp;                 //current health of the Car
     protected int maxHp;              //the maximum health of the Car
+    protected GifImage gif;           //used to store the states of the car. should be stored in the order of straight, left, right, increasingly damaged
+    //^shouldn't play
+    protected int maxDamageState = 0;
+    protected int direction = 0;      //0 for straight, 1 for left, 2 for right
     
     /**
      * Calls the super constructor for the RoadObject.
@@ -24,6 +28,27 @@ public class Car extends RoadObject
     }
     
     /**
+     * Calls the super constructor for the RoadObject.
+     */
+    public Car(AncestorGame game, ArrayList<Car> list, GreenfootImage image, int maxHp) {
+        super(game, list, image);
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+    }
+    
+    /**
+     * Calls the super constructor for the RoadObject.
+     */
+    public Car(AncestorGame game, ArrayList<Car> list, GifImage gif, int maxHp) {
+        super(game, list, gif.getImages().get(0));//sets the image to the first image
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        this.gif = gif;
+        gif.pause();
+        maxDamageState = gif.getImages().size()/3;
+    }
+    
+    /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -31,7 +56,13 @@ public class Car extends RoadObject
         super.act();
         durability = (double)(hp)/maxHp;
         /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
+        
+        if(gif != null){
+            setImage(gif.getImages().get(Utilities.clamp((int)Math.round(Utilities.map(hp, 0, maxHp, maxDamageState-1, 0)), 0, maxDamageState-1) * maxDamageState + direction));
+        }
+        
         if(durability <= 0){
+            game.addObject(new Explosion(this), getX(), getY());
             despawn();
         }
     }

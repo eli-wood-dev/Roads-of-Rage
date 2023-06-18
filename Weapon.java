@@ -92,6 +92,10 @@ public abstract class Weapon extends SmoothMover implements Despawnable{
             setImage(gif.getCurrentImage());
         }
         
+        if(target == null){
+            target = new Vector();
+        }
+        
         if(owner != null){
             if(owner.getGun() == null){//check if the owner already has a gun
                 owner.setGun(this);//make this the owner's gun
