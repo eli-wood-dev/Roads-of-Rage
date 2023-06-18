@@ -117,7 +117,7 @@ public class MachineGun extends Weapon{
      * shoots the gun
      */
     public void shoot(){
-        if(game.getFrameCount() - lastAttack > attackSpeed){
+        if(game != null && game.getFrameCount() - lastAttack > attackSpeed){
             if(gif != null){
                 gif.advanceFrame();
             }

@@ -72,8 +72,8 @@ public class AncestorGame extends World
      * @version 1.00
      */
     public void despawn(Actor obj, ArrayList<? extends Actor> list) {
-        removeObject(obj);
         list.remove(obj);
+        removeObject(obj);
     }
     
     public ArrayList<Projectile> getBullets(){

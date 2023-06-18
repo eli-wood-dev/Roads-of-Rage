@@ -128,7 +128,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public void interact(Car c){
         if(c != ignores){
             c.hurt(damage);
-            despawn(this, list);
+            despawn();
         }
     }
     
@@ -157,7 +157,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
         
     }
     
-    public void despawn(Actor a, ArrayList<? extends Actor> list){
-        game.despawn(a, list);
+    public void despawn(/*Actor a, ArrayList<? extends Actor> list*/){
+        game.despawn(this, list);
     }
 }

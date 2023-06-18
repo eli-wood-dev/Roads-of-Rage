@@ -9,10 +9,10 @@ import java.util.ArrayList;
  */
 public class Car extends RoadObject
 {
-    private double localSpeed;      //the rate that the car can move locally on the screen
-    private double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
-    private int hp;                 //current health of the Car
-    private int maxHp;              //the maximum health of the Car
+    protected double localSpeed;      //the rate that the car can move locally on the screen
+    protected double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
+    protected int hp;                 //current health of the Car
+    protected int maxHp;              //the maximum health of the Car
     
     /**
      * Calls the super constructor for the RoadObject.
@@ -32,7 +32,7 @@ public class Car extends RoadObject
         durability = (double)(hp)/maxHp;
         /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
         if(durability <= 0){
-            despawn(this, list);
+            despawn();
         }
     }
     
@@ -53,9 +53,13 @@ public class Car extends RoadObject
     
     /**
      * decrements the hp of the Car
-     * @param damage        the amount of damage for the Car to recieve
+     * @param damage        the amount of damage for the Car to receive
      */
     public void hurt(int damage){
         hp -= damage;
+    }
+    
+    public void setLocalSpeed(double speed){
+        this.localSpeed = speed;
     }
 }

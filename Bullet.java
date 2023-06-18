@@ -32,7 +32,7 @@ public class Bullet extends Projectile{
     
     public void checkEdge(){
         if(pos.getX() < 0 || pos.getX() > game.getWidth() || pos.getY() < 0 || pos.getY() > game.getHeight()){
-            despawn(this, list);
+            despawn();
         }
     }
 }

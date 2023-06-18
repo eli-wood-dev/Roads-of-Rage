@@ -7,15 +7,15 @@ import java.util.ArrayList;
  * @author Eli Wood 
  * @version 1
  */
-public abstract class Weapon extends SmoothMover{
+public abstract class Weapon extends SmoothMover implements Despawnable{
     protected Vector pos = new Vector();
     protected Vector target = new Vector();
     protected GreenfootImage image;
     protected GifImage gif;
     private int degRot = 0;
     protected AncestorGame game;
-    ArrayList<Projectile> bullets;
-    Car owner;
+    protected ArrayList<Projectile> bullets;
+    protected Car owner;
     protected int damage = 5;
     protected int attackSpeed;//frames between attacks
     protected int lastAttack = 0;
@@ -92,8 +92,17 @@ public abstract class Weapon extends SmoothMover{
             setImage(gif.getCurrentImage());
         }
         
-        pos.setX(getExactX());
-        pos.setY(getExactY());
+        if(owner != null){
+            if(owner.getGun() == null){//check if the owner already has a gun
+                owner.setGun(this);//make this the owner's gun
+            }
+            pos.set(owner.getPos());
+        } else{
+            pos.setX(getExactX());
+            pos.setY(getExactY());
+        }
+        
+        setLocation(pos);
         
         rotateTowards(target);
     }
@@ -126,5 +135,20 @@ public abstract class Weapon extends SmoothMover{
         
         
         
+    }
+    
+    /**
+     * despawns the weapon
+     */
+    public void despawn(){
+        game.removeObject(this);//potentially make the gun a dropped weapon
+    }
+    
+    public Car getOwner(){
+        return owner;
+    }
+    
+    public void setOwner(Car owner){
+        this.owner = owner;
     }
 }
