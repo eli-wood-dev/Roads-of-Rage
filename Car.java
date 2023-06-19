@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Car extends RoadObject
 {
-    protected double localSpeed;      //the rate that the car can move locally on the screen
+    protected double localSpeed = 1;      //the rate that the car can move locally on the screen
     protected double durability = 1;  //percentage scalar for other stats, based on the hp of the vehicle
     protected int hp;                 //current health of the Car
     protected int maxHp;              //the maximum health of the Car
@@ -67,6 +67,18 @@ public class Car extends RoadObject
         }
     }
     
+    public void setVel(Vector v){
+        super.setVel(v);
+        direction = 0;
+        //check if the car is turning left or right
+        if(vel.getX() > 0){
+            direction = 2;
+        } else if(vel.getX() < 0){
+            direction = 1;
+        }
+        
+    }
+    
     /**
      * returns the durability value of the vehicle. Scale from 0.0 - 1.0.
      * @return durability
@@ -92,5 +104,9 @@ public class Car extends RoadObject
     
     public void setLocalSpeed(double speed){
         this.localSpeed = speed;
+    }
+    
+    public double getLocalSpeed(){
+        return localSpeed;
     }
 }

@@ -62,13 +62,14 @@ public class WeaponTest extends AncestorGame{
         car.add(new Car(this, car, new GifImage(carGif), 1000));
         addObject(car.get(0), 300, 300);
         car.get(0).setVel(new Vector(0, -globalSpeed));
+        car.get(0).setLocalSpeed(5);
         
         rocket.scale(96, 96);
         rocket.rotate(90);
         
         //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 10, 7);
-        //testGun = new MachineGun(mousePos, machineGif, 20, car.get(0), 10, 5, 5);
-        testGun = new Shotgun(mousePos, shotGif, 40, car.get(0), 30, 8, 5, 5);
+        //testGun = new MachineGun(mousePos, new GifImage(machineGif), 20, car.get(0), 10, 5, 5);
+        testGun = new Shotgun(mousePos, new GifImage(shotGif), 40, car.get(0), 30, 8, 5, 5);
         
         addObject(testGun, 300, 300);
         
@@ -89,7 +90,7 @@ public class WeaponTest extends AncestorGame{
         }
         
         if(frameCount % 30 == 0){
-            for(int i = 0; i < 2; i++){
+            for(int i = 0; i < 3; i++){
                 enemy.add(new Car(this, enemy, new GifImage(carGif), 15));
                 addObject(enemy.get(enemy.size()-1), 600 + i * 100, 0);
                 
@@ -100,9 +101,9 @@ public class WeaponTest extends AncestorGame{
                     target = car.get(0).getPos().copy();
                 } 
                 
-                //g = new MachineGun(target, new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
-                g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 7);
-                //g = new Shotgun(target, shotGif, 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
+                g = new MachineGun(target, new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
+                //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 7);
+                //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
                 
                 addObject(g, 600 + i * 100, 0);
             }
@@ -114,5 +115,35 @@ public class WeaponTest extends AncestorGame{
         for(Car c : enemy){
             c.shoot();
         }
+        
+        //player movement
+        
+        try{
+            Vector playerVel = new Vector();//make sure the car stays in place
+            double localSpeed = car.get(0).getLocalSpeed();
+            
+            if(Greenfoot.isKeyDown("w")){
+                playerVel.setY(playerVel.getY() - 1); //subtract 1
+            }
+            if(Greenfoot.isKeyDown("s")){
+                playerVel.setY(playerVel.getY() + 1); //add 1
+            }
+            if(Greenfoot.isKeyDown("a")){
+                playerVel.setX(playerVel.getX() - 1); //subtract 1
+            }
+            if(Greenfoot.isKeyDown("d")){
+                playerVel.setX(playerVel.getX() + 1); //add 1
+            }
+            
+            if(playerVel.getMag() != 0){
+                playerVel.setMag(localSpeed);
+            }
+            playerVel.setY(playerVel.getY() - globalSpeed);
+            
+            car.get(0).setVel(playerVel);
+        } catch(Exception e){
+            
+        }
+        
     }
 }

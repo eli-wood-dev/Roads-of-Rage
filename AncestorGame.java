@@ -79,6 +79,4 @@ public class AncestorGame extends World
     public ArrayList<Projectile> getBullets(){
         return projectiles;
     }
-    
-    
 }
