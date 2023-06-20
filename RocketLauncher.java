@@ -19,10 +19,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GreenfootImage image,Car owner, int attackSpeed){
         super(target, image, owner, attackSpeed);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);
         }
@@ -36,10 +36,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage){
         super(target, image, owner, attackSpeed, damage);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);
         }
@@ -53,10 +53,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed, int damage, double bulletSpeed){
         super(target, image, owner, attackSpeed, damage, bulletSpeed);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);
         }
@@ -70,10 +70,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed){
         super(target, gif, owner, attackSpeed);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);
         }
@@ -87,10 +87,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage){
         super(target, gif, owner, attackSpeed, damage);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);
         }
@@ -104,10 +104,10 @@ public class RocketLauncher extends Weapon{
      */
     public RocketLauncher(Vector target, GifImage gif, Car owner, int attackSpeed, int damage, double bulletSpeed){
         super(target, gif, owner, attackSpeed, damage, bulletSpeed);
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         
         for(GreenfootImage g : bulletGif.getImages()){
             g.scale(16, 32);

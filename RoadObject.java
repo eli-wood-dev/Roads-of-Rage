@@ -19,6 +19,10 @@ public class RoadObject extends SmoothMover implements Despawnable
     
     protected Weapon w;
     
+    public RoadObject(){
+        
+    }
+    
     /**
      * Constructor for the RoadObject, initializes the Vector position.
      * 

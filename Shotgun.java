@@ -95,8 +95,8 @@ public class Shotgun extends Weapon{
         super(target, gif, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("pellet.png");
-        bulletImage.scale(16, 9);
+        //bulletImage = new GreenfootImage("pellet.png");
+        //bulletImage.scale(16, 9);
         bulletGif = new GifImage("plasma2.gif");
         bulletGif.pause();
         this.numPellets = numPellets;
@@ -112,8 +112,8 @@ public class Shotgun extends Weapon{
         super(target, gif, owner, attackSpeed, damage, bulletSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("pellet.png");
-        bulletImage.scale(16, 9);
+        //bulletImage = new GreenfootImage("pellet.png");
+        //bulletImage.scale(16, 9);
         bulletGif = new GifImage("plasma2.gif");
         bulletGif.pause();
         this.numPellets = numPellets;

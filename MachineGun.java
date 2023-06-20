@@ -25,10 +25,10 @@ public class MachineGun extends Weapon{
         super(target, image, owner, attackSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         damage = 5;
     }
     
@@ -42,10 +42,10 @@ public class MachineGun extends Weapon{
         super(target, image, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
     }
     
     /**
@@ -58,10 +58,10 @@ public class MachineGun extends Weapon{
         super(target, image, owner, attackSpeed, damage, bulletSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
     }
     
     /**
@@ -74,10 +74,10 @@ public class MachineGun extends Weapon{
         super(target, gif, owner, attackSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
         damage = 5;
     }
     
@@ -91,10 +91,10 @@ public class MachineGun extends Weapon{
         super(target, gif, owner, attackSpeed, damage);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
     }
     
     /**
@@ -107,10 +107,10 @@ public class MachineGun extends Weapon{
         super(target, gif, owner, attackSpeed, damage, bulletSpeed);
         this.maxShotDeviance = maxShotDeviance;
         r = new Random();
-        bulletImage = new GreenfootImage("bullet.png");
+        //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("plasma1.gif");
         bulletGif.pause();
-        bulletImage.scale(9, 18);
+        //bulletImage.scale(9, 18);
     }
     
     /**
@@ -133,7 +133,8 @@ public class MachineGun extends Weapon{
             posOffset.setMag(getImage().getHeight()/2);
             posOffset.add(pos);
             
-            bullets.add(new Bullet(vel, damage,/* new GreenfootImage(bulletImage)*/ new GifImage(bulletGif), bullets, owner));
+            bullets.add(new Bullet(vel, damage, new GifImage(bulletGif), bullets, owner));
+            //bullets.add(new Flame(vel, damage, new GifImage(bulletGif), bullets, owner));//dont use, only for testing
             game.addObject(bullets.get(bullets.size()-1), (int)posOffset.getX(), (int)posOffset.getY());
         }
     }

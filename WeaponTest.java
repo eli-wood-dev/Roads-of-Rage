@@ -14,6 +14,7 @@ public class WeaponTest extends AncestorGame{
     boolean shooting = false;
     GifImage machineGif;
     GifImage shotGif;
+    GifImage flameGif;
     GreenfootImage rocket;
     boolean alive = true;
     GifImage carGif;
@@ -47,6 +48,7 @@ public class WeaponTest extends AncestorGame{
         machineGif = new GifImage("machineTurret.gif");
         shotGif = new GifImage("shotGunTurret.gif");
         rocket = new GreenfootImage("rocketLauncher.png");
+        flameGif = new GifImage("flameTurret.gif");
         
         
         for(GreenfootImage g : machineGif.getImages()){
@@ -55,6 +57,11 @@ public class WeaponTest extends AncestorGame{
         }
         
         for(GreenfootImage g : shotGif.getImages()){
+            g.scale(96, 96);
+            g.rotate(90);
+        }
+        
+        for(GreenfootImage g : flameGif.getImages()){
             g.scale(96, 96);
             g.rotate(90);
         }
@@ -69,7 +76,8 @@ public class WeaponTest extends AncestorGame{
         
         //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 10, 7);
         //testGun = new MachineGun(mousePos, new GifImage(machineGif), 20, car.get(0), 10, 5, 5);
-        testGun = new Shotgun(mousePos, new GifImage(shotGif), 40, car.get(0), 30, 8, 5, 5);
+        //testGun = new Shotgun(mousePos, new GifImage(shotGif), 40, car.get(0), 30, 8, 5, 5);
+        testGun = new FlameThrower(mousePos, new GifImage(flameGif), 30, car.get(0), 2, 2, 4, 1);
         
         addObject(testGun, 300, 300);
         
@@ -89,6 +97,7 @@ public class WeaponTest extends AncestorGame{
             testGun.shoot();
         }
         
+        
         if(frameCount % 30 == 0){
             for(int i = 0; i < 3; i++){
                 enemy.add(new Car(this, enemy, new GifImage(carGif), 15));
@@ -102,8 +111,9 @@ public class WeaponTest extends AncestorGame{
                 } 
                 
                 //g = new MachineGun(target, new GifImage(machineGif), 30, enemy.get(enemy.size()-1), 10, 1, 5);
-                g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 5);
-                //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
+                //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 1, 5);
+                //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 1, 5);
+                g = new FlameThrower(target, new GifImage(flameGif), 30, enemy.get(enemy.size()-1), 2, 1, 4, 1);
                 
                 addObject(g, 600 + i * 100, 0);
             }
