@@ -54,17 +54,20 @@ public class Car extends RoadObject
      */
     public void act() {
         super.act();
-        durability = (double)(hp)/maxHp;
-        /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
-        
-        if(gif != null){
-            setImage(gif.getImages().get(Utilities.clamp((int)Math.round(Utilities.map(hp, 0, maxHp, maxDamageState-1, 0)), 0, maxDamageState-1) * maxDamageState + direction));
+        if(getWorld() != null){
+            durability = (double)(hp)/maxHp;
+            /*System.out.println("DURABILITY: " + durability + " HP: " + hp);*/
+            
+            if(gif != null){
+                setImage(gif.getImages().get(Utilities.clamp((int)Math.round(Utilities.map(hp, 0, maxHp, maxDamageState-1, 0)), 0, maxDamageState-1) * maxDamageState + direction));
+            }
+            
+            if(durability <= 0){
+                game.addObject(new Explosion(this), getX(), getY());
+                despawn();
+            }
         }
         
-        if(durability <= 0){
-            game.addObject(new Explosion(this), getX(), getY());
-            despawn();
-        }
     }
     
     public void setVel(Vector v){

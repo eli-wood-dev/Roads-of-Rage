@@ -98,11 +98,11 @@ public class WeaponTest extends AncestorGame{
                 Weapon g;
                 Vector target = new Vector();
                 if(car.size() > 0){
-                    target = car.get(0).getPos().copy();
+                    target = car.get(0).getPos();
                 } 
                 
-                g = new MachineGun(target, new GifImage(machineGif), 20, enemy.get(enemy.size()-1), 10, 1, 5);
-                //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 7);
+                g = new MachineGun(target, new GifImage(machineGif), 30, enemy.get(enemy.size()-1), 10, 1, 5);
+                //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 5);
                 //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
                 
                 addObject(g, 600 + i * 100, 0);
@@ -113,25 +113,28 @@ public class WeaponTest extends AncestorGame{
         //System.out.println(enemy.size());
         
         for(Car c : enemy){
-            c.shoot();
+            if(car.size() > 0){
+               c.shoot(); 
+            }
         }
         
         //player movement
         
         try{
+            Car player = car.get(0);
             Vector playerVel = new Vector();//make sure the car stays in place
-            double localSpeed = car.get(0).getLocalSpeed();
+            double localSpeed = player.getLocalSpeed();
             
-            if(Greenfoot.isKeyDown("w")){
+            if(Greenfoot.isKeyDown("w") && player.getPos().getY() - localSpeed > 0){
                 playerVel.setY(playerVel.getY() - 1); //subtract 1
             }
-            if(Greenfoot.isKeyDown("s")){
+            if(Greenfoot.isKeyDown("s") && player.getPos().getY() + localSpeed < getHeight()){
                 playerVel.setY(playerVel.getY() + 1); //add 1
             }
-            if(Greenfoot.isKeyDown("a")){
+            if(Greenfoot.isKeyDown("a") && player.getPos().getX() - localSpeed > 0){
                 playerVel.setX(playerVel.getX() - 1); //subtract 1
             }
-            if(Greenfoot.isKeyDown("d")){
+            if(Greenfoot.isKeyDown("d") && player.getPos().getX() + localSpeed < getWidth()){
                 playerVel.setX(playerVel.getX() + 1); //add 1
             }
             
@@ -140,7 +143,7 @@ public class WeaponTest extends AncestorGame{
             }
             playerVel.setY(playerVel.getY() - globalSpeed);
             
-            car.get(0).setVel(playerVel);
+            player.setVel(playerVel);
         } catch(Exception e){
             
         }
