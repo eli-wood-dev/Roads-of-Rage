@@ -63,7 +63,7 @@ public class Car extends RoadObject
             }
             
             if(durability <= 0){
-                game.addObject(new Explosion(this), getX(), getY());
+                game.addObject(new Explosion(this, true), getX(), getY());
                 despawn();
             }
         }

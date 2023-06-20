@@ -101,8 +101,8 @@ public class WeaponTest extends AncestorGame{
                     target = car.get(0).getPos();
                 } 
                 
-                g = new MachineGun(target, new GifImage(machineGif), 30, enemy.get(enemy.size()-1), 10, 1, 5);
-                //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 5);
+                //g = new MachineGun(target, new GifImage(machineGif), 30, enemy.get(enemy.size()-1), 10, 1, 5);
+                g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 10, 5);
                 //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 5, 5);
                 
                 addObject(g, 600 + i * 100, 0);
