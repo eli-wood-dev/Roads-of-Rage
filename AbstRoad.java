@@ -19,7 +19,7 @@ public abstract class AbstRoad extends Actor
     protected int width;
     protected int height;
     
-    protected RoadTest world;
+    protected AncestorGame world;
     protected GreenfootImage img;
     
     
@@ -45,14 +45,15 @@ public abstract class AbstRoad extends Actor
     public void act()
     {
         if (world == null){
-            world = (RoadTest)getWorld();
+            world = (AncestorGame)getWorld();
         }
         //move it by speed
+        setRotation(90);
         move(speed);
         //if it reaches the edge of the screen
-        if(getY()>world.getHeight() + height/2 ){
+        if(getY()>world.getHeight() + width/2 ){
             //set it to the the side
-            setLocation(getX(), 0 - height/2);
+            setLocation(getX(), 0 - width/2);
         }
           
     }

@@ -51,7 +51,7 @@ public class Flame extends Bullet{
     
     public void despawn(){
         //spawn ground flame
-        if(Math.floor(Math.random() * 5) == 0){
+        if(Math.floor(Math.random() * 3) == 0){
             game.addObject(new RoadFlame(game, roadGif), (int)pos.getX(), (int)pos.getY());
         }
         

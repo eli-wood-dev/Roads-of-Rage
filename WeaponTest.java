@@ -30,8 +30,11 @@ public class WeaponTest extends AncestorGame{
         ArrayList<GreenfootImage> temp = new ArrayList<GreenfootImage>();
         for(int i = 0; i < 3; i++){
             temp.add(new GreenfootImage("car" + i + ".png"));
+            temp.get(temp.size()-1).scale(temp.get(temp.size()-1).getWidth() * 2, temp.get(temp.size()-1).getHeight() * 2);
             temp.add(new GreenfootImage("car" + i + "Left.png"));
+            temp.get(temp.size()-1).scale(temp.get(temp.size()-1).getWidth() * 2, temp.get(temp.size()-1).getHeight() * 2);
             temp.add(new GreenfootImage("car" + i + "Right.png"));
+            temp.get(temp.size()-1).scale(temp.get(temp.size()-1).getWidth() * 2, temp.get(temp.size()-1).getHeight() * 2);
         }
         
         carGif = new GifImage(temp);
@@ -39,7 +42,7 @@ public class WeaponTest extends AncestorGame{
         
         globalSpeed = 5;
         
-        setPaintOrder(new Class[]{Weapon.class, Projectile.class});
+        setPaintOrder(new Class[]{Explosion.class, Weapon.class, Projectile.class, RoadObject.class, Road.class});
         setActOrder(new Class[]{RoadObject.class, Weapon.class, Projectile.class});
         
         car = new ArrayList<Car>();
@@ -52,17 +55,17 @@ public class WeaponTest extends AncestorGame{
         
         
         for(GreenfootImage g : machineGif.getImages()){
-            g.scale(96, 96);
+            g.scale(96*2, 96*2);
             g.rotate(90);
         }
         
         for(GreenfootImage g : shotGif.getImages()){
-            g.scale(96, 96);
+            g.scale(96*2, 96*2);
             g.rotate(90);
         }
         
         for(GreenfootImage g : flameGif.getImages()){
-            g.scale(96, 96);
+            g.scale(96*2, 96*2);
             g.rotate(90);
         }
         
@@ -71,7 +74,7 @@ public class WeaponTest extends AncestorGame{
         car.get(0).setVel(new Vector(0, -globalSpeed));
         car.get(0).setLocalSpeed(5);
         
-        rocket.scale(96, 96);
+        rocket.scale(96*2, 96*2);
         rocket.rotate(90);
         
         //testGun = new RocketLauncher(mousePos, rocket, car.get(0), 30, 10, 7);
@@ -81,6 +84,10 @@ public class WeaponTest extends AncestorGame{
         
         addObject(testGun, 300, 300);
         
+        Road a = new Road(5, 1280*2, 880);//incredibly stupid code
+        Road b = new Road(5, 1280*2, 880);
+        addObject(a, 600, 0);
+        addObject(b, 600, 1280);
         
     }
     
@@ -112,8 +119,8 @@ public class WeaponTest extends AncestorGame{
                 
                 //g = new MachineGun(target, new GifImage(machineGif), 30, enemy.get(enemy.size()-1), 10, 1, 5);
                 //g = new RocketLauncher(target, rocket, enemy.get(enemy.size()-1), 30, 1, 5);
-                //g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 1, 5);
-                g = new FlameThrower(target, new GifImage(flameGif), 30, enemy.get(enemy.size()-1), 2, 1, 4, 1);
+                g = new Shotgun(target, new GifImage(shotGif), 40, enemy.get(enemy.size()-1), 30, 8, 1, 5);
+                //g = new FlameThrower(target, new GifImage(flameGif), 30, enemy.get(enemy.size()-1), 2, 1, 4, 1);
                 
                 addObject(g, 600 + i * 100, 0);
             }

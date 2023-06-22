@@ -1,11 +1,11 @@
 import greenfoot.*;
 
-public class Explosion extends Actor
+public class Explosion extends SmoothMover
 {
-    World world;
     GreenfootSound sound;
     int size;
     GifImage image;
+    AncestorGame game;
     
     public Explosion(){
     }
@@ -51,7 +51,7 @@ public class Explosion extends Actor
         
         sound.play();
         
-        world = a.getWorld();
+        game = (AncestorGame)a.getWorld();
     }
     
     
@@ -65,7 +65,9 @@ public class Explosion extends Actor
         setImage(image.getCurrentImage());
         getImage().scale(size, size);
         if(getImage() == image.getImages().get(image.getImages().size()-1)){
-            world.removeObject(this);
+            game.removeObject(this);
         }
+        
+        setLocation(getExactX(), getExactY() + game.getGlobalSpeed());
     }    
 }

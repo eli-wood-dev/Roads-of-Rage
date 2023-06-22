@@ -30,7 +30,7 @@ public class FlameThrower extends Weapon{
         groundFire = new GifImage("fire.gif");
         groundFire.pause();
         for(GreenfootImage g : groundFire.getImages()){
-            g.scale(25, 25);
+            g.scale(25*2, 25*2);
         }
         bulletGif.pause();
         damage = 5;
