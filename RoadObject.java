@@ -32,6 +32,7 @@ public class RoadObject extends SmoothMover implements Despawnable
     public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
         this.game = game;
         this.list = list;
+        image = getImage();
     }
     
     /**
@@ -65,7 +66,7 @@ public class RoadObject extends SmoothMover implements Despawnable
         
         setLocation(pos);    //update actor position to match pos
         
-        if(pos.getX() > game.getWidth() || pos.getX() < 0 || pos.getY() > game.getHeight() || pos.getY() < 0){
+        if(pos.getX() - getImage().getWidth() > game.getWidth() || pos.getX() + getImage().getWidth() < 0 || pos.getY() - getImage().getHeight() > game.getHeight() || pos.getY() + getImage().getHeight() < 0){
             despawn();
         }
     }
