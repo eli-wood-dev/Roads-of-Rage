@@ -46,6 +46,18 @@ public class GifImage
             time = System.currentTimeMillis();
         }
     }
+    
+    public GifImage(List<GreenfootImage> images){
+        pause = false;
+        this.images = new GreenfootImage[images.size()];
+        delay = new int[images.size()];
+        for(int i = 0; i < images.size(); i++){
+            this.images[i] = images.get(i);
+            delay[i] = 100;//irrelevant number
+        }
+        currentIndex = 0;
+        time = System.currentTimeMillis();
+    }
 
     /**
      * Copy the given GifImage.  This is faster, and uses less memory, than loading the same

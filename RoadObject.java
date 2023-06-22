@@ -15,8 +15,13 @@ public class RoadObject extends SmoothMover implements Despawnable
     protected AncestorGame game;
     protected ArrayList<? extends RoadObject> list;    //the list that this object is a part of
     protected Vector vel = new Vector(0, 0);           //current speed(only here to prevent ordering problems)
+    protected GreenfootImage image;
     
     protected Weapon w;
+    
+    public RoadObject(){
+        
+    }
     
     /**
      * Constructor for the RoadObject, initializes the Vector position.
@@ -27,6 +32,19 @@ public class RoadObject extends SmoothMover implements Despawnable
     public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list) {
         this.game = game;
         this.list = list;
+    }
+    
+    /**
+     * Constructor for the RoadObject, initializes the Vector position.
+     * 
+     * @author  Zachary Sousa
+     * @version 1.00
+     */
+    public RoadObject(AncestorGame game, ArrayList<? extends RoadObject> list, GreenfootImage image) {
+        this.game = game;
+        this.list = list;
+        this.image = image;
+        setImage(image);
     }
     
     /**

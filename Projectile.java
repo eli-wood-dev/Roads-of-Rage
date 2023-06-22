@@ -16,6 +16,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     protected Car ignores;
     protected int damage;
     GifImage gif;
+    protected boolean shouldDespawn = false;
     
     /**
      * Constructor
@@ -110,11 +111,16 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
         
         if(getIntersectingObjects(Car.class) != null){
             for(Car c: getIntersectingObjects(Car.class)){
-                interact(c);
+                interact(c);//need to change
             }
         }
         
-        checkEdge();
+        
+        if(shouldDespawn){
+            despawn();
+        } else{//prevent double despawning
+            checkEdge();
+        }
     }
     
     /**
@@ -128,7 +134,8 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     public void interact(Car c){
         if(c != ignores){
             c.hurt(damage);
-            despawn();
+            //despawn();
+            shouldDespawn = true;
         }
     }
     

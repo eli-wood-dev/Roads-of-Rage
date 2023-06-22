@@ -12,11 +12,22 @@ public class Explosion extends Actor
     
     
     public Explosion (Actor a){
-        image = new GifImage("explosion.gif");
+        this(a, false);
+    }
+    
+    public Explosion(Actor a, boolean large){
+        if(large){
+            image = new GifImage("bigExplosion.gif");
+            sound = new GreenfootSound("bigExplode.wav");
+        } else{
+            image = new GifImage("explosion.gif");
+            sound = new GreenfootSound("explode.wav");
+        }
+        
         setImage(image.getCurrentImage());
         size = (int)(a.getImage().getWidth()*3);
         getImage().scale(size, size);
-        sound = new GreenfootSound("explode.wav");
+        
         /*
         if (size > 60){
             //home explosion
