@@ -16,7 +16,7 @@ public class Road extends AbstRoad
     
     
     
-    public void setSpeed(int s){
+    public void setSpeed(double s){
         speed = s;
     }
 }

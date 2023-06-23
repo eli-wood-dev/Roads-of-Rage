@@ -16,6 +16,7 @@ public class RoadObject extends SmoothMover implements Despawnable
     protected ArrayList<? extends RoadObject> list;    //the list that this object is a part of
     protected Vector vel = new Vector(0, 0);           //current speed(only here to prevent ordering problems)
     protected GreenfootImage image;
+    protected boolean moveWithRoad = true;             //only disabled for things like the Player
     
     protected Weapon w;
     
@@ -61,12 +62,14 @@ public class RoadObject extends SmoothMover implements Despawnable
         }
         
         globalSpeed = game.getGlobalSpeed();
-        pos.add(0, globalSpeed * speedMultiplier);
+        if(moveWithRoad) {
+            pos.add(0, globalSpeed * speedMultiplier);
+        }
         pos.add(vel);
         
         setLocation(pos);    //update actor position to match pos
         
-        if(pos.getX() - getImage().getWidth() > game.getWidth() || pos.getX() + getImage().getWidth() < 0 || pos.getY() - getImage().getHeight() > game.getHeight() || pos.getY() + getImage().getHeight() < 0){
+        if(pos.getX() - getImage().getWidth() > game.getWidth() || pos.getX() + getImage().getWidth() < 0 || pos.getY() - getImage().getHeight() > game.getHeight()/* || pos.getY() + getImage().getHeight() < 0*/){
             despawn();
         }
     }
@@ -135,5 +138,19 @@ public class RoadObject extends SmoothMover implements Despawnable
      */
     public Weapon getGun(){
         return w;
+    }
+    
+    /**
+     * @return height of image
+     */
+    public int getHeight() {
+        return this.getImage().getHeight();        
+    }
+    
+    /**
+     * @return width of image
+     */
+    public int getWidth() {
+        return this.getImage().getWidth();        
     }
 }

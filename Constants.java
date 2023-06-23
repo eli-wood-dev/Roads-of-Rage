@@ -7,6 +7,8 @@ public class Constants
     public static final int MAX_SPEED = 10;
     public static final int MIN_SPEED = 0;
     public static final int BOOST_SPEED = 20; //make sure that this can override any limits set with the MAX_SPEED
+    public static final double ACCELERATION = 0.005;
+    public static final double LOCAL_ACCEL = 0.075;
     
     
     public static final int MISSILE_LIFESPAN = 120;

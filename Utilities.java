@@ -3,6 +3,19 @@
  */
 public class Utilities  
 {
+    public static boolean almostEquals(double a, double b) {
+        if(Math.abs(a - b) <= 0.05) {
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean almostEquals(double a, double b, double thresh) {
+        if(Math.abs(a - b) <= thresh) {
+            return true;
+        }
+        return false;
+    }
     
     /**
      * Lineraly interpolates a value. Useful for smoothening movements.

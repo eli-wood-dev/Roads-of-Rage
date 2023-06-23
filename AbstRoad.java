@@ -15,7 +15,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class AbstRoad extends Actor
 {
-    protected int speed;
+    protected double speed;
     protected int width;
     protected int height;
     
@@ -48,7 +48,7 @@ public abstract class AbstRoad extends Actor
             world = (RoadTest)getWorld();
         }
         //move it by speed
-        move(speed);
+        move((int)speed);
         //if it reaches the edge of the screen
         if(getY()>world.getHeight() + height/2 ){
             //set it to the the side

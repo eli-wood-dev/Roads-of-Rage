@@ -74,7 +74,9 @@ public class Car extends RoadObject
         super.setVel(v);
         direction = 0;
         //check if the car is turning left or right
-        if(vel.getX() > 0){
+        if(Utilities.almostEquals(vel.getX(), 0, 0.5)) {
+            direction = 0;
+        } else if(vel.getX() > 0){
             direction = 2;
         } else if(vel.getX() < 0){
             direction = 1;

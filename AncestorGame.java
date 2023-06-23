@@ -40,7 +40,7 @@ public class AncestorGame extends World
     }
     
     protected void updateMouse(){
-        try{
+        try {
             mouse = Greenfoot.getMouseInfo();
             mousePos.setX(mouse.getX());
             mousePos.setY(mouse.getY());
@@ -60,6 +60,17 @@ public class AncestorGame extends World
      */
     public double getGlobalSpeed() {
         return globalSpeed;
+    }
+    
+    /**
+     * setGlobalSpeed
+     * @param globalSpeed
+     * 
+     * @author  Zachary Sousa
+     * @version 1.00
+     */
+    public void setGlobalSpeed(double globalSpeed) {
+        this.globalSpeed = globalSpeed;
     }
     
     /**

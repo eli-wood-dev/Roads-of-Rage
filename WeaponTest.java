@@ -33,11 +33,12 @@ public class WeaponTest extends AncestorGame{
             temp.add(new GreenfootImage("car" + i + "Left.png"));
             temp.add(new GreenfootImage("car" + i + "Right.png"));
         }
-        
         carGif = new GifImage(temp);
+        Player p1 = new Player(this, carGif, 1000);
+        addObject(p1, 400, 400);
         
         
-        globalSpeed = 5;
+        //globalSpeed = 5;
         
         setPaintOrder(new Class[]{Weapon.class, Projectile.class});
         setActOrder(new Class[]{RoadObject.class, Weapon.class, Projectile.class});
@@ -100,7 +101,7 @@ public class WeaponTest extends AncestorGame{
         
         if(frameCount % 30 == 0){
             for(int i = 0; i < 3; i++){
-                enemy.add(new Car(this, enemy, new GifImage(carGif), 15));
+                enemy.add(new Car(this, enemy, new GifImage(carGif), 100));
                 addObject(enemy.get(enemy.size()-1), 600 + i * 100, 0);
                 
                 

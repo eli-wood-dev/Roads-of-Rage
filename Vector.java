@@ -427,4 +427,12 @@ public class Vector{
         
         return false;
     }
+    
+    /**
+     * logs basic information about the Vector
+     * @author Zachary Sousa
+     */
+    public void log() {
+        System.out.println("X: " + x + " Y: " + y + " MAG: " + getMag());
+    }
 }

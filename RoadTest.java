@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Test World for the Road
@@ -22,8 +23,17 @@ public class RoadTest extends AncestorGame
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 705);
-        setPaintOrder(Road.class);
+        setPaintOrder(new Class[]{Weapon.class, Projectile.class, Car.class});
         reset();
+        ArrayList<GreenfootImage> temp = new ArrayList<GreenfootImage>();
+        for(int i = 0; i < 3; i++){
+            temp.add(new GreenfootImage("car" + i + ".png"));
+            temp.add(new GreenfootImage("car" + i + "Left.png"));
+            temp.add(new GreenfootImage("car" + i + "Right.png"));
+        }
+        GifImage carGif = new GifImage(temp);
+        Player p1 = new Player(this, carGif, 100);
+        addObject(p1, 400, 400);
     }
     
     
@@ -32,7 +42,9 @@ public class RoadTest extends AncestorGame
     {
       List<Road> allRoads = getObjects(Road.class);
        
-    
+      for(int i=0; i < numRoads; i++){
+            road[i].setSpeed(globalSpeed);
+      }
     }
     
     
@@ -42,6 +54,7 @@ public class RoadTest extends AncestorGame
         for(int i=0; i < numRoads; i++){
             road[i] = new Road(speed, getHeight() + 250, 550);
             road[i].setRotation(90);
+            road[i].setSpeed(globalSpeed);
             addObject(road[i], getWidth()/2, getHeight() - (i * getHeight()) );
         }
        
