@@ -9,10 +9,10 @@ import java.util.Random;
  * @version 1
  */
 public class MachineGun extends Weapon{
-    private double maxShotDeviance;
-    private Random r;
-    private GreenfootImage bulletImage;
-    GifImage bulletGif;
+    protected double maxShotDeviance;
+    protected Random r;
+    protected GreenfootImage bulletImage;
+    protected GifImage bulletGif;
     
     
     /**

@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public class Missile extends Projectile{
-    Vector target;
-    int frame = 0;
+    protected Vector target;
+    private int frame = 0;
     
     /**
      * Constructor

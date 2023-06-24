@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class RocketLauncher extends Weapon{
-    private GreenfootImage bulletImage;
-    GifImage bulletGif;
+    protected GreenfootImage bulletImage;
+    protected GifImage bulletGif;
     
     
     /**
@@ -17,7 +17,7 @@ public class RocketLauncher extends Weapon{
      * @param target what to shoot at
      * @param image the image for the gun
      */
-    public RocketLauncher(Vector target, GreenfootImage image,Car owner, int attackSpeed){
+    public RocketLauncher(Vector target, GreenfootImage image, Car owner, int attackSpeed){
         super(target, image, owner, attackSpeed);
         //bulletImage = new GreenfootImage("bullet.png");
         bulletGif = new GifImage("rocket.gif");

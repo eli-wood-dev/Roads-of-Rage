@@ -1,0 +1,185 @@
+@startuml
+
+class SmoothMover
+abstract class Projectile extends SmoothMover implements Despawnable
+class Bullet extends Projectile
+class Flame extends Bullet
+class Missile extends Projectile
+class RoadObject extends SmoothMover implements Despawnable
+class RoadFlame extends RoadObject
+abstract class Weapon extends SmoothMover
+class FlameThrower extends Weapon
+class MachineGun extends Weapon
+class RocketLauncher extends Weapon
+class Shotgun extends Weapon
+interface Despawnable
+class Vector
+
+Vector : -x: double
+Vector : -y: double
+
+Vector : +Vector()
+Vector : +Vector(x: double, y: double)
+Vector : +getX(): double
+Vector : +setX(x: double): void
+Vector : +getY(): double
+Vector : +setY(y: double): void
+Vector : +set(v: Vector): void
+Vector : +copy(): Vector
+Vector : +getMag(): double
+Vector : +add(x: double, y: double): void
+Vector : +add(v: Vector): void
+Vector : {static}+add(v1: Vector, v2: Vector): Vector
+Vector : +sub(x: double, y: double): void
+Vector : +sub(v: Vector): void
+Vector : {static}+sub(v1: Vector, v2: Vector): Vector
+Vector : +mult(d: double): void
+Vector : {static}+mult(d: double, v: Vector): Vector
+Vector : +div(d: double): void
+Vector : {static}+div(d: double, v: Vector): Vector
+Vector : +dist(v: Vector): double
+Vector : {static}+dist(v1: Vector, v2: Vector): double
+Vector : +dot(v: Vector): double
+Vector : {static}+dot(v1: Vector, v2: Vector): double
+Vector : +normalize(): void
+Vector : +setMag(mag: double): void
+Vector : +limit(mag: double): void
+Vector : +heading(): double
+Vector : {static}+angleBetween(v1: Vector, v2: Vector): double
+Vector : +lerp(x: double, y: double, amount: double): void
+Vector : +lerp(v: Vector, amount: double): void
+Vector : {static}+lerp(v1: Vector, v2: Vector, amount: double): Vector
+Vector : +rotate(theta: double): void
+Vector : +setRotation(theta: double): void
+Vector : +equals(v: Vector): boolean
+Vector : +log(): void
+
+Despawnable : +despawn(): void
+
+Projectile : #pos: Vector
+Projectile : #vel: Vector
+Projectile : #img: GreenfootImage
+Projectile : #game: AncestorGame
+Projectile : #list: ArrayList<Projectile>
+Projectile : #ignores: Car
+Projectile : #damage: int
+Projectile : #gif: GifImage
+Projectile : #shouldDespawn: boolean
+
+Projectile : +Projectile(vel: Vector, img: GreenfootImage, list: ArrayList<Projectile>, ignores: Car)
+Projectile : +Projectile(vel: Vector, damage: int, img: GreenfootImage, list: ArrayList<Projectile>, ignores: Car)
+Projectile : +Projectile(vel: Vector, gif: GifImage, list: ArrayList<Projectile>, ignores: Car)
+Projectile : +Projectile(vel: Vector, damage: int, gif: GifImage, list: ArrayList<Projectile>, ignores: Car)
+Projectile : +act(): void
+Projectile : {abstract}+checkEdge(): void
+Projectile : +interact(c: Car): void
+Projectile : #rotateStraight(): void
+Projectile : +despawn(): void
+
+Bullet : +Bullet(vel: Vector, damage: int, img: GreenfootImage, list: ArrayList<Projectile>, ignores: Car)
+Bullet : +Bullet(vel: Vector, damage: int, gif: GifImage, list: ArrayList<Projectile>, ignores: Car)
+Bullet : +checkEdge(): void
+
+Flame : -frame: int
+Flame : #roadGif: GifImage
+
+Flame : +Flame(vel: Vector, damage: int, img: GreenfootImage, list: ArrayList<Projectile>, ignores: Car)
+Flame : +Flame(vel: Vector, damage: int, gif: GifImage, list: ArrayList<Projectile>, ignores: Car)
+Flame : +checkEdge(): void
+Flame : +despawn(): void
+
+Missile : #target: Vector
+Missile : -frame: int
+
+Missile : +Missile(vel: Vector, target: Vector, damage: int, img: GreenfootImage, list: ArrayList<Projectile>, ignores: Car)
+Missile : +Missile(vel: Vector, target: Vector, damage: int, gif: GifImage, list: ArrayList<Projectile>, ignores: Car)
+Missile : +checkEdge(): void
+Missile : #rotateStraight(): void
+Missile : +despawn(): void
+
+RoadFlame : -gif: GifImage
+RoadFlame : -timer: int
+RoadFlame : +RoadFlame(game: AncestorGame)
+RoadFlame : +RoadFlame(game: AncestorGame, gif: GifImage)
+RoadFlame : +act(): void
+RoadFlame : +interact(c: Car): void
+RoadFlame : +despawn(): void
+
+Weapon : #pos: Vector
+Weapon : #target: Vector
+Weapon : #image: GreenfootImage
+Weapon : #gif: GifImage
+Weapon : #game: AncestorGame
+Weapon : #bullets: ArrayList<Projectile>
+Weapon : #owner: Car
+Weapon : #damage: int
+Weapon : #attackSpeed: int
+Weapon : #lastAttack: int
+Weapon : #bulletSpeed: double
+
+Weapon : +Weapon(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int)
+Weapon : +Weapon(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int, damage: int)
+Weapon : +Weapon(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+Weapon : +Weapon(target: Vector, gif: GifImage, owner: Car, attackSpeed: int)
+Weapon : +Weapon(target: Vector, gif: GifImage, owner: Car, attackSpeed: int, damage: int)
+Weapon : +Weapon(target: Vector, gif: GifImage, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+Weapon : +act(): void
+Weapon : {abstract}+shoot(): void
+Weapon : +rotateTowards(target: Vector): void
+Weapon : +despawn(): void
+Weapon : +getOwner(): Car
+Weapon : +setOwner(owner: Car): void
+
+MachineGun : #maxShotDeviance: double
+MachineGun : #r: Random
+MachineGun : #bulletImage: GreenfootImage
+MachineGun : #bulletGif: GifImage
+
+MachineGun : +MachineGun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int)
+MachineGun : +MachineGun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int, damage: int)
+MachineGun : +MachineGun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+MachineGun : +MachineGun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int)
+MachineGun : +MachineGun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int, damage: int)
+MachineGun : +MachineGun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+MachineGun : +shoot(): void
+
+Shotgun : #maxShotDeviance: double
+Shotgun : #r: Random
+Shotgun : #bulletImage: GreenfootImage
+Shotgun : #numPellets: int
+Shotgun : #bulletGif: GifImage
+Shotgun : #animating: boolean
+
+Shotgun : +Shotgun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int)
+Shotgun : +Shotgun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int, damage: int)
+Shotgun : +Shotgun(target: Vector, image: GreenfootImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int, damage: int, bulletSpeed: double)
+Shotgun : +Shotgun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int)
+Shotgun : +Shotgun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int, damage: int)
+Shotgun : +Shotgun(target: Vector, gif: GifImage, maxShotDeviance: int, owner: Car, attackSpeed: int, numPellets: int, damage: int, bulletSpeed: double)
+Shotgun : +act(): void
+Shotgun : +shoot(): void
+
+RocketLauncher : #bulletImage: GreenfootImage
+RocketLauncher : #bulletGif: GifImage
+
+RocketLauncher : +RocketLauncher(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int)
+RocketLauncher : +RocketLauncher(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int, damage: int)
+RocketLauncher : +RocketLauncher(target: Vector, image: GreenfootImage, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+RocketLauncher : +RocketLauncher(target: Vector, gif: GifImage, owner: Car, attackSpeed: int)
+RocketLauncher : +RocketLauncher(target: Vector, gif: GifImage, owner: Car, attackSpeed: int, damage: int)
+RocketLauncher : +RocketLauncher(target: Vector, gif: GifImage, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double)
+RocketLauncher : +shoot(): void
+
+FlameThrower : #bulletGif: GifImage
+FlameThrower : #groundFire: GifImage
+FlameThrower : #maxDeviation: double
+FlameThrower : #turnAmount: double
+FlameThrower : #shooting: boolean
+FlameThrower : #turnOffset: double
+
+FlameThrower : +FlameThrower(target: Vector, image: GreenfootImage, maxDeviation: int, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double, turnAmount: double)
+FlameThrower : +act(): void
+FlameThrower : +shoot(): void
+
+
+@enduml

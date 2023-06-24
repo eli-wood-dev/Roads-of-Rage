@@ -15,7 +15,7 @@ public abstract class Projectile extends SmoothMover implements Despawnable{
     protected ArrayList<Projectile> list;
     protected Car ignores;
     protected int damage;
-    GifImage gif;
+    protected GifImage gif;
     protected boolean shouldDespawn = false;
     
     /**

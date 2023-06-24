@@ -12,7 +12,7 @@ public abstract class Weapon extends SmoothMover implements Despawnable{
     protected Vector target = new Vector();
     protected GreenfootImage image;
     protected GifImage gif;
-    private int degRot = 0;
+    //private int degRot = 0;
     protected AncestorGame game;
     protected ArrayList<Projectile> bullets;
     protected Car owner;

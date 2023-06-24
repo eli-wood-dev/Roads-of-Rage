@@ -8,12 +8,12 @@ import java.util.Random;
  * @version (a version number or a date)
  */
 public class Shotgun extends Weapon{
-    private double maxShotDeviance;
-    private Random r;
-    private GreenfootImage bulletImage;
-    private int numPellets;
-    GifImage bulletGif;
-    boolean animating = false;
+    protected double maxShotDeviance;
+    protected Random r;
+    protected GreenfootImage bulletImage;
+    protected int numPellets;
+    protected GifImage bulletGif;
+    protected boolean animating = false;
     
     /**
      * Constructor

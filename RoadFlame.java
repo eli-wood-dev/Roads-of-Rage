@@ -7,8 +7,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class RoadFlame extends RoadObject{
-    GifImage gif;
-    int timer;
+    private GifImage gif;
+    private int timer;
     /**
      * Constructor for the RoadObject, initializes the Vector position.
      * 
