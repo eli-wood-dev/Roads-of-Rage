@@ -14,6 +14,17 @@ class RocketLauncher extends Weapon
 class Shotgun extends Weapon
 interface Despawnable
 class Vector
+abstract class AbstRoad extends SmoothMover
+class Road extends AbstRoad
+class Car extends RoadObject
+class Player extends Car
+abstract class AncestorGame
+class CarTest extends AncestorGame
+class RoadTest extends AncestorGame
+class SpeedometerTest extends AncestorGame
+class WeaponTest extends AncestorGame
+class Speedometer extends SmoothMover
+class SpeedometerStick extends SmoothMover
 
 Vector : -x: double
 Vector : -y: double
@@ -180,6 +191,20 @@ FlameThrower : #turnOffset: double
 FlameThrower : +FlameThrower(target: Vector, image: GreenfootImage, maxDeviation: int, owner: Car, attackSpeed: int, damage: int, bulletSpeed: double, turnAmount: double)
 FlameThrower : +act(): void
 FlameThrower : +shoot(): void
+
+WeaponTest : testGun: Weapon
+WeaponTest : car: ArrayList<Car>
+WeaponTest : enemy: ArrayList<Car>
+WeaponTest : shooting: boolean
+WeaponTest : machineGif: GifImage
+WeaponTest : shotGif: GifImage
+WeaponTest : flameGif: GifImage
+WeaponTest : rocket: GreenfootImage
+WeaponTest : alive: boolean
+WeaponTest : carGif: GifImage
+
+WeaponTest : +WeaponTest()
+WeaponTest : +act(): void
 
 
 @enduml
